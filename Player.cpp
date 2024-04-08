@@ -1,0 +1,388 @@
+﻿#include "Player.h"
+
+void Player::Initialize()
+{
+
+	player =
+	{
+		{64,300},
+		{4,4},
+		16
+	};
+
+	sword.Initialize();
+
+	cane_.Initialize();
+	spear_.Initialize();
+}
+
+void Player::Update(char* keys, char* prekeys)
+{
+	//右に動く
+	if (keys[DIK_A])
+	{
+		player.velocity.X = -5;
+		if (player.position.X >= 580 && player.position.X <= 2550)
+		{
+
+			scrolX += player.velocity.X;
+
+		}
+		
+		
+	}
+	if (keys[DIK_A] == 0 && prekeys[DIK_A])
+	{
+		player.velocity.X = 0;
+		if (player.position.X >= 580 && player.position.X <= 2550)
+		{
+
+			scrolX += player.velocity.X;
+
+		}
+
+		
+	}
+
+	//左に動く
+	if (keys[DIK_D])
+	{
+		player.velocity.X = 5;
+		if (player.position.X >= 580 && player.position.X <= 2550)
+		{
+
+			scrolX += player.velocity.X;
+
+		}
+	}
+
+	if (keys[DIK_D] == 0 && prekeys[DIK_D])
+	{
+
+		player.velocity.X = 0;
+		if (player.position.X >= 580 && player.position.X <= 2550)
+		{
+
+			scrolX += player.velocity.X;
+
+		}
+	
+		
+	}
+	//重力をかける
+	player.velocity.Y += gravity;
+
+	
+	
+		
+
+	if (keys[DIK_SPACE] && prekeys[DIK_SPACE] == 0)
+	{
+		if (jampFlag == false)
+		{
+
+			jampFlag = true;
+			player.velocity.Y -= 20;
+		
+
+		}
+	}
+
+	//4頂点の座標
+	float top = player.position.Y - player.radius;
+	float down = player.position.Y + player.radius - 1;
+	float right = player.position.X + player.radius - 1;
+	float left = player.position.X - player.radius;
+
+	//左右の判定
+	if (map[(int)(top / 32)][(int)((left + player.velocity.X) / 32)] != 0 ||
+		map[(int)(top / 32)][(int)((right + player.velocity.X) / 32)] != 0 ||
+		map[(int)(down / 32)][(int)((left + player.velocity.X) / 32)] != 0 ||
+		map[(int)(down / 32)][(int)((right + player.velocity.X) / 32)] != 0)
+	{
+		if (player.velocity.X > 0)
+		{
+			while (map[(int)(top / 32)][(int)((left + 1) / 32)] == 0 &&
+				map[(int)(top / 32)][(int)((right + 1) / 32)] == 0 &&
+				map[(int)(down / 32)][(int)((left + 1) / 32)] == 0 &&
+				map[(int)(down / 32)][(int)((right + 1) / 32)] == 0)
+			{
+				player.position.Y += 1;
+				left += 1;
+				right += 1;
+			}
+		}
+
+		if (player.velocity.X < 0)
+		{
+			while (map[(int)(top / 32)][(int)((left - 1) / 32)] == 0 &&
+				map[(int)(top / 32)][(int)((right - 1) / 32)] == 0 &&
+				map[(int)(down / 32)][(int)((left - 1) / 32)] == 0 &&
+				map[(int)(down / 32)][(int)((right - 1) / 32)] == 0)
+			{
+				player.position.X -= 1;
+				left -= 1;
+				right -= 1;
+			}
+		}
+
+		player.velocity.X = 0;
+
+	}
+
+	//上下の判定
+	top = player.position.Y - player.radius;
+	down = player.position.Y + player.radius - 1;
+	right = player.position.X + player.radius - 1;
+	left = player.position.X - player.radius;
+
+
+	//隠しブロック
+	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK2 ||
+		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK2 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK2 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK2)
+	{
+		kakusiflag = true;
+	}
+
+	//緑の隠しブロック
+	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK3 ||
+		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK3 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK3 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK3)
+	{
+		kakusiflag2 = true;
+	}
+
+	//ブロッが0以外の時に判定を取る
+	//ブロックが0以外の時に判定を取る
+	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] != 0 ||
+		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] != 0 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] != 0 ||
+		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] != 0)
+	{
+
+		if (player.velocity.Y > 0)
+		{
+			while (map[(int)((top + 1) / 32)][(int)((left) / 32)] == 0 &&
+				map[(int)((top + 1) / 32)][(int)((right) / 32)] == 0 &&
+				map[(int)((down + 1) / 32)][(int)((left) / 32)] == 0 &&
+				map[(int)((down + 1) / 32)][(int)((right) / 32)] == 0)
+			{
+				player.position.Y += 1;
+				top += 1;
+				down += 1;
+			}
+
+		}
+
+
+		//1回しかジャンプしない↓
+		if (map[(int)((down + 1) / 32)][(int)((left) / 32)] == 1 ||
+			map[(int)((down + 1) / 32)][(int)((right) / 32)] == 1)
+		{
+			jampFlag = false;//貯めジャンプ
+			//wallflag = false;//壁キック
+		}
+		//1回しかジャンプしない↑
+
+
+		if (player.velocity.Y < 0)
+		{
+			while (map[(int)((top - 1) / 32)][(int)((left) / 32)] == 0 &&
+				map[(int)((top - 1) / 32)][(int)((right) / 32)] == 0 &&
+				map[(int)((down - 1) / 32)][(int)((left) / 32)] == 0 &&
+				map[(int)((down - 1) / 32)][(int)((right) / 32)] == 0)
+			{
+				player.position.Y -= 1;
+				top -= 1;
+				down -= 1;
+			}
+		}
+
+		player.velocity.Y = 0;
+
+	}
+
+	player.position.X += player.velocity.X;
+	player.position.Y += player.velocity.Y;
+
+	//剣1
+	if (player.position.X <= sword.position[0].x + sword.radius_ &&
+		sword.position[0].x <= player.position.X + player.radius &&
+		player.position.Y <= sword.position[0].y + sword.radius_ &&
+		sword.position[0].y <= player.position.Y + player.radius)
+
+	{
+
+		sword.swordflag = true;
+
+		
+
+	}
+	if (keys[DIK_0])
+	{
+		sword.equipment = true;
+
+	}
+	if (sword.equipment == true && keys[DIK_K]&&prekeys[DIK_K] ==0)
+	{
+
+		sword.position[1].x += sword.speed_;
+
+	}
+
+	//剣２
+	if (player.position.X <= sword.position[1].x + sword.radius_ &&
+		sword.position[1].x <= player.position.X + player.radius &&
+		player.position.Y <= sword.position[1].y + sword.radius_ &&
+		sword.position[1].y <= player.position.Y + player.radius)
+
+	{
+
+		sword.swordflag2 = true;
+
+	}
+	if (player.position.X <= sword.position[2].x + sword.radius_ &&
+		sword.position[2].x <= player.position.X + player.radius &&
+		player.position.Y <= sword.position[2].y + sword.radius_ &&
+		sword.position[2].y <= player.position.Y + player.radius)
+
+	{
+
+		sword.swordflag3 = true;
+
+
+
+	}
+
+
+
+
+	//杖
+	if (player.position.X <= cane_.position[0].x + cane_.radius_ &&
+		cane_.position[0].x <= player.position.X + player.radius &&
+		player.position.Y <= cane_.position[0].y + cane_.radius_ &&
+		cane_.position[0].y <= player.position.Y + player.radius)
+
+	{
+		cane_.caneflag = true;
+	}
+
+	//杖二本目
+	if (player.position.X <= cane_.position[1].x + cane_.radius_ &&
+		cane_.position[1].x <= player.position.X + player.radius &&
+		player.position.Y <= cane_.position[1].y + cane_.radius_ &&
+		cane_.position[1].y <= player.position.Y + player.radius)
+
+	{
+
+		cane_.caneflag2 = true;
+		
+	}
+
+	if (player.position.X <= cane_.position[2].x + cane_.radius_ &&
+		cane_.position[2].x <= player.position.X + player.radius &&
+		player.position.Y <= cane_.position[2].y + cane_.radius_ &&
+		cane_.position[2].y <= player.position.Y + player.radius)
+
+	{
+
+		cane_.caneflag3 = true;
+
+	}
+
+	//槍
+	if (player.position.X <= spear_.position[0].x + spear_.radius_ &&
+		spear_.position[0].x <= player.position.X + player.radius &&
+		player.position.Y <= spear_.position[0].y + spear_.radius_ &&
+		spear_.position[0].y <= player.position.Y + player.radius)
+
+	{
+
+		spear_.spearflag = true;
+
+	}
+	if (player.position.X <= spear_.position[1].x + spear_.radius_ &&
+		spear_.position[1].x <= player.position.X + player.radius &&
+		player.position.Y <= spear_.position[1].y + spear_.radius_ &&
+		spear_.position[1].y <= player.position.Y + player.radius)
+
+	{
+
+		spear_.spearflag2 = true;
+
+	}
+
+
+	sword.Update();
+
+}
+
+void Player::Draw()
+{
+	   //自分
+
+		Novice::DrawSprite(player.position.X - player.radius-scrolX, player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
+		sword.Draw();
+		cane_.Draw();
+		spear_.Draw();
+
+
+		if (sword.equipment == true)
+		{
+		    
+			Novice::DrawSprite(sword.position[1].x, sword.position[1].y, Ken, 1, 1, 0.0f, WHITE);
+
+		}
+
+
+		
+	//グリッド線描画
+	for (int i = 0; i < 50; i++)
+	{
+
+		Novice::DrawLine(i * 32, 0, i * 32, 1280, 0xAAAAAAFF);
+		Novice::DrawLine(0, i * 32, 1280, i * 32, 0xAAAAAAFF);
+
+	}
+
+	//ブロック描画
+	for (int y = 0; y < 100; y++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (map[y][x] == BLOCK)//普通のブロック
+			{
+				Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKirasuto, 1, 1, 0.0f, WHITE);
+			}
+
+			if (kakusiflag == true)
+			{
+				if (map[y][x] == BLOCK2)//隠しブロック
+				{
+					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi, 1, 1, 0.0f, WHITE);
+				}
+			}
+
+			if (kakusiflag2 == true)
+			{
+				if (map[y][x] == BLOCK3)//緑の隠しブロック
+				{
+					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi2, 1, 1, 0.0f, WHITE);
+				}
+			}
+
+			if (kakusiflag3 == true)
+			{
+				if (map[y][x] == BLOCK4)
+				{
+					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi3, 1, 1, 0.0f, WHITE);
+				}
+			}
+		}
+	}
+
+
+}
