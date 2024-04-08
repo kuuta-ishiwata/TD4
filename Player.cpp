@@ -337,7 +337,7 @@ void Player::Draw()
 		if (sword.equipment == true)
 		{
 		    
-			Novice::DrawSprite(sword.position[0].x, sword.position[0].y, Ken, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(sword.position[0].x + player.position.X, sword.position[0].y + player.position.Y , Ken, 1, 1, 0.0f, WHITE);
 
 		}
 
