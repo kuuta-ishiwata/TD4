@@ -43,6 +43,8 @@ public:
 
 	object player;
 	
+	
+
 	Sword sword;
 	cane cane_;
 	Spear spear_;
@@ -51,6 +53,7 @@ public:
 	float GetcenterY() { return player.position.Y; }
 	void SetposX(float posX) { this->player.position.X = posX; }
 	void SetposY(float posY) { this->player.position.X = posY; }
+
 
 
 

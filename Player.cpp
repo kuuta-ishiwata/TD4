@@ -10,8 +10,9 @@ void Player::Initialize()
 		16
 	};
 
-	sword.Initialize();
 
+
+	sword.Initialize();
 	cane_.Initialize();
 	spear_.Initialize();
 }
@@ -22,6 +23,7 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_A])
 	{
 		player.velocity.X = -5;
+	
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -34,6 +36,7 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_A] == 0 && prekeys[DIK_A])
 	{
 		player.velocity.X = 0;
+	
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -48,6 +51,7 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_D])
 	{
 		player.velocity.X = 5;
+	
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -60,6 +64,7 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		player.velocity.X = 0;
+	
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -73,7 +78,6 @@ void Player::Update(char* keys, char* prekeys)
 	player.velocity.Y += gravity;
 
 	
-	
 		
 
 	if (keys[DIK_SPACE] && prekeys[DIK_SPACE] == 0)
@@ -83,8 +87,8 @@ void Player::Update(char* keys, char* prekeys)
 
 			jampFlag = true;
 			player.velocity.Y -= 20;
-		
 
+		    
 		}
 	}
 
@@ -107,9 +111,11 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)(down / 32)][(int)((left + 1) / 32)] == 0 &&
 				map[(int)(down / 32)][(int)((right + 1) / 32)] == 0)
 			{
+
 				player.position.Y += 1;
 				left += 1;
 				right += 1;
+
 			}
 		}
 
@@ -121,13 +127,15 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)(down / 32)][(int)((right - 1) / 32)] == 0)
 			{
 				player.position.X -= 1;
+				
 				left -= 1;
 				right -= 1;
+
 			}
 		}
 
 		player.velocity.X = 0;
-
+		
 	}
 
 	//上下の判定
@@ -143,7 +151,9 @@ void Player::Update(char* keys, char* prekeys)
 		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK2 ||
 		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK2)
 	{
+
 		kakusiflag = true;
+
 	}
 
 	//緑の隠しブロック
@@ -152,7 +162,9 @@ void Player::Update(char* keys, char* prekeys)
 		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK3 ||
 		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK3)
 	{
+
 		kakusiflag2 = true;
+
 	}
 
 	//ブロッが0以外の時に判定を取る
@@ -170,9 +182,12 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)((down + 1) / 32)][(int)((left) / 32)] == 0 &&
 				map[(int)((down + 1) / 32)][(int)((right) / 32)] == 0)
 			{
+
 				player.position.Y += 1;
+			     
 				top += 1;
 				down += 1;
+
 			}
 
 		}
@@ -196,17 +211,20 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)((down - 1) / 32)][(int)((right) / 32)] == 0)
 			{
 				player.position.Y -= 1;
+				
 				top -= 1;
 				down -= 1;
 			}
 		}
 
 		player.velocity.Y = 0;
-
+	
 	}
 
 	player.position.X += player.velocity.X;
 	player.position.Y += player.velocity.Y;
+	
+///////////////////////////////////////////////////////////////////////
 
 	//剣1
 	if (player.position.X <= sword.position[0].x + sword.radius_ &&
@@ -218,22 +236,28 @@ void Player::Update(char* keys, char* prekeys)
 
 		sword.swordflag = true;
 
-
-
 	}
+
 	if (keys[DIK_0])
 	{
+
 		sword.equipment = true;
-	
+		sword.position[0].x = player.position.X;
+		sword.position[0].y = player.position.Y;
+
 	}
+
 	if (keys[DIK_K])
 	{
+
 		sword.swordshot = true;
 	}
-	if (sword.equipment == true&&sword.swordshot == true)
+
+
+	if (sword.swordshot == true)
 	{
 
-		sword.Shot();
+		sword.position[0].x += sword.speed_;
 
 	}
 
@@ -256,8 +280,6 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		sword.swordflag3 = true;
-
-
 
 	}
 
@@ -320,7 +342,7 @@ void Player::Update(char* keys, char* prekeys)
 	}
 
 
-	sword.Update();
+
 
 }
 
@@ -336,10 +358,12 @@ void Player::Draw()
 
 		if (sword.equipment == true)
 		{
-		    
-			Novice::DrawSprite(sword.position[0].x + player.position.X, sword.position[0].y + player.position.Y , Ken, 1, 1, 0.0f, WHITE);
+			
+			Novice::DrawSprite(sword.position[0].x , sword.position[0].y, Ken, 1, 1, 0.0f, WHITE);
 
 		}
+		
+		
 
 
 		
@@ -357,6 +381,7 @@ void Player::Draw()
 	{
 		for (int x = 0; x < 100; x++)
 		{
+
 			if (map[y][x] == BLOCK)//普通のブロック
 			{
 				Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKirasuto, 1, 1, 0.0f, WHITE);

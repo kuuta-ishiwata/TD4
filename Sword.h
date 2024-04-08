@@ -8,6 +8,7 @@ class Sword
 public:
 
 	Vector2 position[4];
+	
 	float speed_;
 	float radius_;
 	int isShot_;
@@ -23,6 +24,7 @@ public:
 	void Draw();
 	void Shot();
 	
+	
 
 
 public:
@@ -33,6 +35,10 @@ public:
 	float GetcenterY() { return position[0].y; }
 	void SetposX(float posX) { this->position[0].x = posX; }
 	void SetposY(float posY) { this->position[0].y = posY; }
+	
+
+
+
 	float GetspeedX() { return speed_; }
 	float Getradius() { return radius_; }
 	int GetIsShot() { return isShot_; }
@@ -42,16 +48,14 @@ public:
 	void SetIsShot(int isShot) { this->isShot_ = isShot; }
 
 
-	
+	bool swordflag = false;
 	bool swordflag2 = false;
 	bool swordflag3 = false;
-	int ScrolX = 0;
 
-	//1
 	bool equipment = false;
-	bool swordflag = false;
 	bool swordshot = false;
 
+	int ScrolX = 0;
 	int Ken = Novice::LoadTexture("./ken.png");
 
 };

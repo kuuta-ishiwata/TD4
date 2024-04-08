@@ -49,5 +49,8 @@ public:
 	//スクロール
 	int scrolX = 0;
 
+	int tue = Novice::LoadTexture("./tue.png");
+
+
 };
 

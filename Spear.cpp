@@ -33,12 +33,13 @@ void Spear::Draw()
 {
 	if (spearflag == false)
 	{
-		Novice::DrawBox(position[0].x, position[0].y, radius_, radius_, 0.0f, BLUE, kFillModeSolid);
+		Novice::DrawSprite(position[0].x , position[0].y,yari , 1, 1, 0.0f, WHITE);
 
 	}
 	if (spearflag2 == false)
 	{
-		Novice::DrawBox(position[1].x, position[1].y, radius_, radius_, 0.0f, BLUE, kFillModeSolid);
+		Novice::DrawSprite(position[0].x, position[0].y, yari, 1, 1, 0.0f, WHITE);
+
 
 	}
 

@@ -48,5 +48,8 @@ public:
 	//スクロール
 	int scrolX = 0;
 
+
+	int yari = Novice::LoadTexture("./yari.png");
+
 };
 

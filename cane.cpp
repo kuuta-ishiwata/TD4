@@ -45,7 +45,8 @@ void cane::Draw()
 
 	if (caneflag == false)
 	{
-		Novice::DrawBox(position[0].x-scrolX, position[0].y, radius_, radius_, 0.0f, BLACK, kFillModeSolid);
+		Novice::DrawSprite(position[0].x, position[0].y, tue, 1, 1, 0.0f, WHITE);
+
 
 	}
 
@@ -53,13 +54,13 @@ void cane::Draw()
 	if (caneflag2 == false)
 	{
 
-		Novice::DrawBox(position[1].x-scrolX, position[1].y, radius_, radius_, 0.0f, BLACK, kFillModeSolid);
+		Novice::DrawSprite(position[0].x, position[0].y, tue, 1, 1, 0.0f, WHITE);
 
 	}
 	if (caneflag3 == false)
 	{
 
-		Novice::DrawBox(position[2].x-scrolX, position[2].y, radius_, radius_, 0.0f, BLACK, kFillModeSolid);
+		Novice::DrawSprite(position[0].x, position[0].y, tue, 1, 1, 0.0f, WHITE);
 
 	}
 
