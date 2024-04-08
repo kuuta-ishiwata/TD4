@@ -20,6 +20,7 @@ void Sword::Initialize()
 void Sword::Update()
 {
 	
+
 }
 
 void Sword::Oncollision()
@@ -32,6 +33,16 @@ void Sword::Oncollision2()
 {
 
 	swordflag2 = true;
+
+}
+
+void Sword::Shot()
+{
+
+	if (equipment == true)
+	{
+		position[0].x += speed_;
+	}
 
 }
 

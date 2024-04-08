@@ -218,18 +218,22 @@ void Player::Update(char* keys, char* prekeys)
 
 		sword.swordflag = true;
 
-		
+
 
 	}
 	if (keys[DIK_0])
 	{
 		sword.equipment = true;
-
+	
 	}
-	if (sword.equipment == true && keys[DIK_K]&&prekeys[DIK_K] ==0)
+	if (keys[DIK_K])
+	{
+		sword.swordshot = true;
+	}
+	if (sword.equipment == true&&sword.swordshot == true)
 	{
 
-		sword.position[1].x += sword.speed_;
+		sword.Shot();
 
 	}
 
@@ -333,7 +337,7 @@ void Player::Draw()
 		if (sword.equipment == true)
 		{
 		    
-			Novice::DrawSprite(sword.position[1].x, sword.position[1].y, Ken, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(sword.position[0].x, sword.position[0].y, Ken, 1, 1, 0.0f, WHITE);
 
 		}
 

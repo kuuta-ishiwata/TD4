@@ -21,7 +21,7 @@ public:
 	void Oncollision2();
 	void Oncollision3();
 	void Draw();
-
+	void Shot();
 	
 
 
@@ -42,12 +42,16 @@ public:
 	void SetIsShot(int isShot) { this->isShot_ = isShot; }
 
 
-	bool swordflag = false;
+	
 	bool swordflag2 = false;
 	bool swordflag3 = false;
 	int ScrolX = 0;
 
+	//1
 	bool equipment = false;
+	bool swordflag = false;
+	bool swordshot = false;
+
 	int Ken = Novice::LoadTexture("./ken.png");
 
 };
