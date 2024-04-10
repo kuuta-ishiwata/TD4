@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Novice.h>
 #include "Vector2.h"
-
+#include "Player.h"
 class Sword
 {
 
@@ -20,7 +20,7 @@ public:
 
 	void Oncollision();
 	void Oncollision2();
-	
+	void Oncollision3();
 	void Draw();
 	void Shot();
 	
@@ -66,9 +66,12 @@ public:
 	int ScrolX = 0;
 
 	int Ken = Novice::LoadTexture("./ken.png");
+private:
 
 
+	Player* player;
+	player = new Player();
 
-	
+
 };
 

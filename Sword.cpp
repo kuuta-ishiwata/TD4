@@ -10,7 +10,7 @@ void Sword::Initialize()
 	position[1].y = 600;
 	position[2].x = 400;
 	position[2].y = 600;
-	this->speed_ = 8.0f;
+	speed_= { 0,0 };
 	this->radius_ = 32.0f;
 	this->isShot_ = false;
 
@@ -19,8 +19,8 @@ void Sword::Initialize()
 
 void Sword::Update()
 {
-	
 
+	
 }
 
 void Sword::Oncollision()
@@ -39,10 +39,6 @@ void Sword::Oncollision2()
 void Sword::Shot()
 {
 
-	if (equipment == true)
-	{
-		position[0].x += speed_;
-	}
 
 }
 
@@ -52,7 +48,7 @@ void Sword::Draw()
 	if (swordflag == false)
 	{
 
-		Novice::DrawSprite(position[0].x - ScrolX, position[0].y,Ken,1,1 , 0.0f,WHITE);
+		Novice::DrawSprite(position[0].x , position[0].y,Ken,1,1 , 0.0f,WHITE);
 
 	}
 
@@ -60,13 +56,13 @@ void Sword::Draw()
 	if (swordflag2 == false)
 	{
 
-		Novice::DrawSprite(position[1].x - ScrolX, position[1].y, Ken, 1, 1, 0.0f, WHITE);
+		Novice::DrawSprite(position[1].x, position[1].y, Ken, 1, 1, 0.0f, WHITE);
 
 	}
 
 	if (swordflag3 == false)
 	{
-		Novice::DrawSprite(position[2].x - ScrolX, position[2].y, Ken, 1, 1, 0.0f, WHITE);
+		Novice::DrawSprite(position[2].x, position[2].y, Ken, 1, 1, 0.0f, WHITE);
 	}
 
 

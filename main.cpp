@@ -60,6 +60,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		player->Draw();
 		
+
 		//sword->Draw();
 		//cane_->Draw();
 		///

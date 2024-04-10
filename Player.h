@@ -50,11 +50,12 @@ public:
 	Spear spear_;
 
 	float GetcenterX() { return player.position.X; }
+	int GetScrolX() { return scrolX; }
 	float GetcenterY() { return player.position.Y; }
 	void SetposX(float posX) { this->player.position.X = posX; }
 	void SetposY(float posY) { this->player.position.X = posY; }
 
-
+	void SetScrolX(int scrol) { this->scrolX = scrol; }
 
 
 	//ジャンプのフラグ

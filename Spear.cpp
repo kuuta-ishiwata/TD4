@@ -26,21 +26,18 @@ void Spear::Oncollision()
 
 	spearflag = true;
 
-
 }
 
 void Spear::Draw()
 {
 	if (spearflag == false)
 	{
-		Novice::DrawSprite(position[0].x , position[0].y,yari , 1, 1, 0.0f, WHITE);
-
+		Novice::DrawSprite(position[0].x -scrolX, position[0].y,yari , 1, 1, 0.0f, WHITE);
 	}
+
 	if (spearflag2 == false)
 	{
-		Novice::DrawSprite(position[0].x, position[0].y, yari, 1, 1, 0.0f, WHITE);
-
-
+		Novice::DrawSprite(position[1].x -scrolX, position[1].y, yari, 1, 1, 0.0f, WHITE);
 	}
 
 

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <Novice.h>
 #include "Vector2.h"
 
@@ -15,20 +15,20 @@ public:
 
 private:
 
-	//‰B‚µƒuƒƒbƒNƒtƒ‰ƒO
+	//éš ã—ãƒ–ãƒ­ãƒƒã‚¯ãƒ•ãƒ©ã‚°
 	int kakusiflag = false;
 	int kakusiflag2 = false;
 	int kakusiflag3 = false;
 
 	int BLOCKirasuto = Novice::LoadTexture("./BLOCK.png");
-	int BLOCKkakusi = Novice::LoadTexture("./kakusiBlock.png"); //Ô
-	int BLOCKkakusi2 = Novice::LoadTexture("./kakusiBlock2.png"); //—Î
-	int BLOCKkakusi3 = Novice::LoadTexture("./kakusiBlock3.png"); //Â
+	int BLOCKkakusi = Novice::LoadTexture("./kakusiBlock.png"); //èµ¤
+	int BLOCKkakusi2 = Novice::LoadTexture("./kakusiBlock2.png"); //ç·‘
+	int BLOCKkakusi3 = Novice::LoadTexture("./kakusiBlock3.png"); //é’
 
 
 	int BLOCKsize = 32;
 
-	//‘O‚Ì[]‚ªyBŒã‚ë‚Ì[]‚ªx
+	//å‰ã®[]ãŒyã€‚å¾Œã‚ã®[]ãŒx
 
 	int map[100][100]
 	{

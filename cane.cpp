@@ -54,13 +54,13 @@ void cane::Draw()
 	if (caneflag2 == false)
 	{
 
-		Novice::DrawSprite(position[0].x, position[0].y, tue, 1, 1, 0.0f, WHITE);
+		Novice::DrawSprite(position[1].x, position[1].y, tue, 1, 1, 0.0f, WHITE);
 
 	}
 	if (caneflag3 == false)
 	{
 
-		Novice::DrawSprite(position[0].x, position[0].y, tue, 1, 1, 0.0f, WHITE);
+		Novice::DrawSprite(position[2].x, position[2].y, tue, 1, 1, 0.0f, WHITE);
 
 	}
 
