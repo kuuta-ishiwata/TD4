@@ -21,7 +21,7 @@ public:
 	void Oncollision();
 	void Oncollision2();
 	
-	void Draw();
+	void Draw(int x);
 	void Shot();
 	
 	

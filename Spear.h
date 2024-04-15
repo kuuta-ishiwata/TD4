@@ -18,7 +18,7 @@ public:
 
 	void Oncollision();
 
-	void Draw();
+	void Draw(int x);
 
 
 

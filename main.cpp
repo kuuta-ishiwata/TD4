@@ -48,7 +48,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		player->Update(keys, preKeys);
-		sword->Update();
+	
 
 		///
 		/// ↑更新処理ここまで

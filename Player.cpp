@@ -28,19 +28,22 @@ void Player::Update(char* keys, char* prekeys)
 		 {
 		 	sword.speed_.x = -5;
 		 }
+
 		 if (sword.equipment2 == true)
 		 {
 			 sword.speed_.x = -5;
 		 }
+
 		 if (sword.equipment3 == true)
 		 {
 			 sword.speed_.x = -5;
 		 }
+
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
 			scrolX += player.velocity.X;
-			
+
 		}
 		
 		
@@ -270,7 +273,6 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)((down + 1) / 32)][(int)((left) / 32)] == 0 &&
 				map[(int)((down + 1) / 32)][(int)((right) / 32)] == 0)
 			{
-
 				player.position.Y += 1;
 				if (sword.equipment == true)
 				{
@@ -537,17 +539,20 @@ void Player::Update(char* keys, char* prekeys)
 
 void Player::Draw()
 {
-	   //自分
 
-		Novice::DrawSprite(player.position.X - player.radius -scrolX, player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
-		sword.Draw();
-		cane_.Draw();
-		spear_.Draw();
+
+	   //自分
+		Novice::DrawSprite(player.position.X - player.radius - scrolX , player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
+		sword.Draw(scrolX);
+		cane_.Draw(scrolX);
+		spear_.Draw(scrolX);
 
 
 		if (sword.equipment == true)
 		{
+
 			Novice::DrawSprite(sword.position[0].x-scrolX, sword.position[0].y - 20, Ken, 1, 1, 0.0f, WHITE);
+
 		}
 		
 
@@ -560,12 +565,10 @@ void Player::Draw()
 		if (sword.equipment3 == true)
 		{
 
-
 			Novice::DrawSprite(sword.position[2].x - scrolX, sword.position[2].y - 20, Ken, 1, 1, 0.0f, WHITE);
 
+
 		}
-
-
 
 		
 	//グリッド線描画

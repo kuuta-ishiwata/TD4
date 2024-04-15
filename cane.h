@@ -22,7 +22,7 @@ public:
 	void Oncollision2();
 	void Oncollision3();
 
-	void Draw();
+	void Draw(int x);
 
 
 
