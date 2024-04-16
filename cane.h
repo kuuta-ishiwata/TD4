@@ -9,7 +9,7 @@ class cane
 public:
 
 	Vector2 position[4];
-	float speed_;
+	Vector2 speed_;
 	float radius_;
 	int isShot_;
 
@@ -34,11 +34,12 @@ public:
 	float GetcenterY() { return position[0].y; }
 	void SetposX(float posX) { this->position[0].x = posX; }
 	void SetposY(float posY) { this->position[0].y = posY; }
-	float GetspeedX() { return speed_; }
+
+	Vector2 GetspeedX() { return speed_; }
 	float Getradius() { return radius_; }
 	int GetIsShot() { return isShot_; }
 
-	void SetSpeed(float speed) { this->speed_ = speed; }
+	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
 	void Setradius(float radius) { this->radius_ = radius; }
 	void SetIsShot(int isShot) { this->isShot_ = isShot; }
 
@@ -50,6 +51,17 @@ public:
 	int scrolX = 0;
 
 	int tue = Novice::LoadTexture("./tue.png");
+
+	//1
+	bool equipment = false;
+	bool canedshot = false;
+	//2
+	bool equipment2 = false;
+	bool caneshot2 = false;
+
+	//3
+	bool equipment3 = false;
+	bool caneshot3 = false;
 
 
 };

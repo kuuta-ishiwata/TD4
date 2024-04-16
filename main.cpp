@@ -6,6 +6,7 @@
 #include "Sword.h"
 #include "cane.h"
 #include "Map.h"
+#include "Enemy.h"
 const char kWindowTitle[] = "LE2C_02_イシワタクウタ";
 
 // Windowsアプリでのエントリーポイント(main関数)
@@ -32,6 +33,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	cane_ = new cane();
 	cane_->Initialize();
 
+	Enemy* enemy_;
+	enemy_ = new Enemy();
+	enemy_->Initialize();
+
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
 		// フレームの開始
@@ -48,7 +53,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		player->Update(keys, preKeys);
-	
+		enemy_->Update();
 
 		///
 		/// ↑更新処理ここまで
@@ -59,8 +64,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		player->Draw();
-		
-
+		enemy_->Draw();
+	
 		//sword->Draw();
 		//cane_->Draw();
 		///

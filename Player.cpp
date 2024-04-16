@@ -39,6 +39,20 @@ void Player::Update(char* keys, char* prekeys)
 			 sword.speed_.x = -5;
 		 }
 
+		 if (cane_.equipment == true)
+		 {
+			 cane_.speed_.x = -5;
+		 }
+
+		 if (cane_.equipment2 == true)
+		 {
+			 cane_.speed_.x= -5;
+		 }
+
+		 if (cane_.equipment3 == true)
+		 {
+			 cane_.speed_.x = -5;
+		 }
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -62,6 +76,22 @@ void Player::Update(char* keys, char* prekeys)
 		if (sword.equipment3 == true)
 		{
 			sword.speed_.x = 0;
+		}
+
+
+		if (cane_.equipment == true)
+		{
+			cane_.speed_.x = -5;
+		}
+
+		if (cane_.equipment2 == true)
+		{
+			cane_.speed_.x = -5;
+		}
+
+		if (cane_.equipment3 == true)
+		{
+			cane_.speed_.x = -5;
 		}
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
@@ -89,6 +119,21 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			sword.speed_.x = 5;
 		}
+
+		if (cane_.equipment == true)
+		{
+			cane_.speed_.x = -5;
+		}
+
+		if (cane_.equipment2 == true)
+		{
+			cane_.speed_.x = -5;
+		}
+
+		if (cane_.equipment3 == true)
+		{
+			cane_.speed_.x = -5;
+		}
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
 
@@ -112,6 +157,21 @@ void Player::Update(char* keys, char* prekeys)
 		 if (sword.equipment3 == true)
 		 {
 			 sword.speed_.x = 0;
+		 }
+
+		 if (cane_.equipment == true)
+		 {
+			 cane_.speed_.x = -5;
+		 }
+
+		 if (cane_.equipment2 == true)
+		 {
+			 cane_.speed_.x = -5;
+		 }
+
+		 if (cane_.equipment3 == true)
+		 {
+			 cane_.speed_.x = -5;
 		 }
 		if (player.position.X >= 580 && player.position.X <= 2550)
 		{
@@ -142,6 +202,21 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
+	if (cane_.equipment == true)
+	{
+		cane_.speed_.y += gravity;
+	}
+
+	if (cane_.equipment2 == true)
+	{
+		cane_.speed_.y += gravity ;
+	}
+
+	if (cane_.equipment3 == true)
+	{
+		cane_.speed_.y += gravity;
+	}
+
 	if (keys[DIK_SPACE] && prekeys[DIK_SPACE] == 0)
 	{
 		if (jampFlag == false)
@@ -159,10 +234,26 @@ void Player::Update(char* keys, char* prekeys)
 			{
 				sword.speed_.y -= 20;
 			}
+
 			if (sword.equipment3 == true)
 			{
 				sword.speed_.y -= 20;
 			}
+
+			if (cane_.equipment == true)
+			{
+				cane_.speed_.y -= 20;
+			}
+
+			if (cane_.equipment2 == true)
+			{
+				cane_.speed_.y -= 20;
+			}
+			if (cane_.equipment3 == true)
+			{
+				cane_.speed_.y -= 20;
+			}
+
 		}
 	}
 
@@ -189,6 +280,10 @@ void Player::Update(char* keys, char* prekeys)
 				sword.position[0].y += 1;
 				sword.position[1].y += 1;
 				sword.position[2].y += 1;
+				cane_.position[0].y += 1;
+				cane_.position[1].y += 1;
+				cane_.position[2].y += 1;
+
 				player.position.Y += 1;
 				left += 1;
 				right += 1;
@@ -204,15 +299,20 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)(down / 32)][(int)((right - 1) / 32)] == 0)
 			{
 				player.position.X -= 1;
+				//剣
 				sword.position[0].x -= 1;
 				sword.position[1].x -= 1;
 				sword.position[2].x -= 1;
+				//杖
+				cane_.position[0].x += 1;
+				cane_.position[1].x += 1;
+				cane_.position[2].x += 1;
 				left -= 1;
 				right -= 1;
 
 			}
 		}
-
+		//剣
 		if(sword.equipment == true)
 		{ 
 			sword.speed_.x = 0;
@@ -224,6 +324,19 @@ void Player::Update(char* keys, char* prekeys)
 		if (sword.equipment3 == true)
 		{
 			sword.speed_.x = 0;
+		}
+		//杖
+		if (cane_.equipment == true)
+		{
+			cane_.speed_.x = 0;
+		}
+		if (cane_.equipment2 == true)
+		{
+			cane_.speed_.x = 0;
+		}
+		if (cane_.equipment3 == true)
+		{
+			cane_.speed_.x = 0;
 		}
 		player.velocity.X = 0;
 		
@@ -274,6 +387,7 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)((down + 1) / 32)][(int)((right) / 32)] == 0)
 			{
 				player.position.Y += 1;
+				//剣
 				if (sword.equipment == true)
 				{
 					sword.position[0].y += 1;
@@ -285,6 +399,19 @@ void Player::Update(char* keys, char* prekeys)
 				if (sword.equipment3 == true)
 				{
 					sword.position[2].y += 1;
+				}
+				//杖
+				if (cane_.equipment == true)
+				{
+					cane_.position[0].y += 1;
+				}
+				if (cane_.equipment2 == true)
+				{
+					cane_.position[1].y += 1;
+				}
+				if (cane_.equipment3 == true)
+				{
+					cane_.position[2].y += 1;
 				}
 				top += 1;
 				down += 1;
@@ -312,6 +439,7 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)((down - 1) / 32)][(int)((right) / 32)] == 0)
 			{
 				player.position.Y -= 1;
+				//剣
 				if (sword.equipment == true)
 				{
 					sword.position[0].y -= 1;
@@ -324,12 +452,26 @@ void Player::Update(char* keys, char* prekeys)
 				{
 					sword.position[1].y -= 1;
 				}
+				//杖
+				if (cane_.equipment == true)
+				{
+					cane_.position[0].y += 1;
+				}
+				if (cane_.equipment2 == true)
+				{
+					cane_.position[1].y += 1;
+				}
+				if (cane_.equipment3 == true)
+				{
+					cane_.position[2].y += 1;
+				}
 				top -= 1;
 				down -= 1;
 			}
 		}
 
 		player.velocity.Y = 0;
+		//剣
 		if (sword.equipment == true)
 		{
 			sword.speed_.y = 0;
@@ -342,10 +484,25 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			sword.speed_.y = 0;
 		}
+		//杖
+		if (cane_.equipment == true)
+		{
+			cane_.speed_.y = 0;
+		}
+		if (cane_.equipment2 == true)
+		{
+			cane_.speed_.y = 0;
+		}
+		if (cane_.equipment3 == true)
+		{
+			cane_.speed_.y = 0;
+		}
+
 	}
 
 	player.position.X += player.velocity.X;
 	player.position.Y += player.velocity.Y;
+	//剣
 	if (sword.equipment == true)
 	{
 		sword.position[0].x += sword.speed_.x;
@@ -360,6 +517,24 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		sword.position[2].x += sword.speed_.x;
 		sword.position[2].y += sword.speed_.y;
+	}
+	//杖
+	if (cane_.equipment == true)
+	{
+		cane_.position[0].x += cane_.speed_.x;
+		cane_.position[0].y += cane_.speed_.y;
+	}
+
+	if (cane_.equipment2 == true)
+	{
+		cane_.position[1].x += cane_.speed_.x;
+		cane_.position[1].y += cane_.speed_.y;
+	}
+
+	if (cane_.equipment3 == true)
+	{
+		cane_.position[2].x += cane_.speed_.x;
+		cane_.position[2].y += cane_.speed_.y;
 	}
 
 /////////////////////////////////////////////////////////////////////////
@@ -376,7 +551,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (keys[DIK_0])
+	if (keys[DIK_0] && sword.swordflag == true)
 	{
 		sword.equipment = true;
 		sword.equipment2 = false;
@@ -384,12 +559,14 @@ void Player::Update(char* keys, char* prekeys)
 		sword.position[0].x = player.position.X;
 		sword.position[0].y = player.position.Y;
 		
+	}
+	if (keys[DIK_O] && sword.swordflag == true)
+	{
+
+		sword.swordshot = true;
 
 	}
-	if (keys[DIK_K])
-	{
-		sword.swordshot = true;
-	}
+
 
 	if (sword.swordshot == true)
 	{
@@ -410,7 +587,7 @@ void Player::Update(char* keys, char* prekeys)
 		sword.swordflag2 = true;
 
 	}
-	if (keys[DIK_9])
+	if (keys[DIK_9] && sword.swordflag2 == true)
 	{
 		sword.equipment = false;
 		sword.equipment2 = true;
@@ -421,12 +598,12 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (keys[DIK_J])
+
+	if (keys[DIK_I] && sword.swordflag2 == true)
 	{
 
 		sword.swordshot2 = true;
 	}
-
 
 	if (sword.swordshot2 == true)
 	{
@@ -449,23 +626,23 @@ void Player::Update(char* keys, char* prekeys)
 		sword.swordflag3 = true;
 
 	}
-	if (keys[DIK_8])
+
+	if (keys[DIK_8] && sword.swordflag3 == true)
 	{
+
 		sword.equipment = false;
 		sword.equipment2 = false;
 		sword.equipment3 = true;
 		sword.position[2].x = player.position.X;
 		sword.position[2].y = player.position.Y;
-
+		
 
 	}
-
-	if (keys[DIK_H])
+	if (keys[DIK_U] && sword.swordflag3 == true)
 	{
 
 		sword.swordshot3 = true;
 	}
-
 
 	if (sword.swordshot3 == true)
 	{
@@ -474,6 +651,7 @@ void Player::Update(char* keys, char* prekeys)
 		sword.position[2].x += 5;
 
 	}
+
 
 	//杖
 	if (player.position.X <= cane_.position[0].x + cane_.radius_ &&
@@ -486,6 +664,31 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.caneflag = true;
 
 	}
+	if (keys[DIK_7] && cane_.caneflag == true)
+	{
+		cane_.equipment = true;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
+		cane_.position[0].x = player.position.X;
+		cane_.position[0].y = player.position.Y;
+
+
+	}
+
+	if (keys[DIK_Y] && cane_.caneflag == true)
+	{
+
+		cane_.caneshot2 = true;
+	}
+
+	if (cane_.caneshot2 == true)
+	{
+		cane_.speed_.x = 0;
+		cane_.speed_.y = 0;
+		cane_.position[0].x += 5;
+
+	}
+
 
 	//杖二本目
 	if (player.position.X <= cane_.position[1].x + cane_.radius_ &&
@@ -498,6 +701,31 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.caneflag2 = true;
 		
 	}
+	if (keys[DIK_6] && cane_.caneflag2 == true)
+	{
+		cane_.equipment = false;
+		cane_.equipment2 = true;
+		cane_.equipment3 = false;
+		cane_.position[1].x = player.position.X;
+		cane_.position[1].y = player.position.Y;
+
+
+	}
+
+	if (keys[DIK_T]&& cane_.caneflag2 == true)
+	{
+
+		cane_.caneshot3 = true;
+	}
+
+	if (sword.swordshot3 == true)
+	{
+		cane_.speed_.x = 0;
+		cane_.speed_.y = 0;
+		cane_.position[2].x += 5;
+
+	}
+
 
 	if (player.position.X <= cane_.position[2].x + cane_.radius_ &&
 		cane_.position[2].x <= player.position.X + player.radius &&
@@ -547,7 +775,7 @@ void Player::Draw()
 		cane_.Draw(scrolX);
 		spear_.Draw(scrolX);
 
-
+		//剣
 		if (sword.equipment == true)
 		{
 
@@ -566,6 +794,29 @@ void Player::Draw()
 		{
 
 			Novice::DrawSprite(sword.position[2].x - scrolX, sword.position[2].y - 20, Ken, 1, 1, 0.0f, WHITE);
+
+
+		}
+
+		//杖
+		if (cane_.equipment == true)
+		{
+
+			Novice::DrawSprite(cane_.position[0].x - scrolX, cane_.position[0].y - 20, tue, 1, 1, 0.0f, WHITE);
+
+		}
+
+
+		if (cane_.equipment2 == true)
+		{
+
+			Novice::DrawSprite(cane_.position[1].x - scrolX, cane_.position[1].y - 20, tue, 1, 1, 0.0f, WHITE);
+
+		}
+		if (cane_.equipment3 == true)
+		{
+
+			Novice::DrawSprite(cane_.position[2].x - scrolX, cane_.position[2].y - 20, tue, 1, 1, 0.0f, WHITE);
 
 
 		}

@@ -81,6 +81,7 @@ public:
 
 	int irasuto = Novice::LoadTexture("./player.png");
 	int Ken = Novice::LoadTexture("./ken.png");
+	int tue = Novice::LoadTexture("./tue.png");
 	int BLOCKsize = 32;
 
 	int map[100][100]
