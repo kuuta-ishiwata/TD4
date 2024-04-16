@@ -17,20 +17,24 @@ void Enemy::Update()
 void Enemy::Draw()
 {
 
+	Novice::DrawBox(enemyPosition.x,enemyPosition.y,radius,radius,0.0f,RED,kFillModeSolid);
+	
 
 	EnemyObjDraw();
+
+
 }
 
 
 
 void Enemy::EnemySpawn(Vector2& Position)
 {
+
 	Enemy* enemy = new Enemy;
 
 	enemy->Initialize();
 
 	enemy->SetPlayer(player_);
-
 
 	enemies_.push_back(enemy);
 
@@ -46,11 +50,15 @@ void Enemy::EnemyObjUpdate()
 void Enemy::EnemyObjDraw()
 {
 
-	for (Enemy* enemy : enemies_) {
+	for (Enemy* enemy : enemies_) 
+	{
 		enemy->Draw();
+
 	}
 
 }
+
+
 void Enemy::LoadEnemyPopData()
 {
 	// ファイルを開く

@@ -39,7 +39,8 @@ private:
 	Player* player_ = nullptr;
 	Vector2 position;
 	float radius = 32;
-	Vector2 enemyPosition{ 300.0f, 550.0f };
+	Vector2 enemyPosition;
+
 
 };
 

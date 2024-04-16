@@ -36,6 +36,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Enemy* enemy_;
 	enemy_ = new Enemy();
 	enemy_->Initialize();
+	
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -54,7 +55,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		player->Update(keys, preKeys);
 		enemy_->Update();
-
+		
 		///
 		/// ↑更新処理ここまで
 		///
@@ -65,8 +66,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		player->Draw();
 		enemy_->Draw();
-	
-		//sword->Draw();
+		
+
 		//cane_->Draw();
 		///
 		/// ↑描画処理ここまで
