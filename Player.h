@@ -20,7 +20,6 @@ enum BLOCKinfo
 
 
 
-
 class Player
 {
 

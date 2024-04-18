@@ -566,6 +566,9 @@ void Player::Update(char* keys, char* prekeys)
 		sword.equipment = true;
 		sword.equipment2 = false;
 		sword.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 		sword.position[0].x = player.position.X;
 		sword.position[0].y = player.position.Y;
 		
@@ -602,6 +605,9 @@ void Player::Update(char* keys, char* prekeys)
 		sword.equipment = false;
 		sword.equipment2 = true;
 		sword.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 		sword.position[1].x = player.position.X;
 		sword.position[1].y = player.position.Y;
 
@@ -679,6 +685,9 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.equipment = true;
 		cane_.equipment2 = false;
 		cane_.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 		cane_.position[0].x = player.position.X;
 		cane_.position[0].y = player.position.Y;
 
@@ -716,6 +725,9 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.equipment = false;
 		cane_.equipment2 = true;
 		cane_.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 		cane_.position[1].x = player.position.X;
 		cane_.position[1].y = player.position.Y;
 
@@ -770,20 +782,25 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-
+            
 	//敵
-	if (player.position.X <= enemy_.enemyPosition.x + enemy_.radius_ &&
+	if (player.position.X <= enemy_.enemyPosition.x + enemy_.radius_&&
 		enemy_.enemyPosition.x <= player.position.X + player.radius&&
 		player.position.Y <= enemy_.enemyPosition.y + enemy_.radius_&&
 		enemy_.enemyPosition.y <= player.position.Y + player.radius)
+
 	{
-	
-		//enemy_.ChecAllCollision();
+
+	    //enemy_.ChecAllCollision();
 		enemy_.flag = false;
 	    flag = false;
 		Novice::ScreenPrintf(200,300,"atari",flag);
 
+
 	}
+
+
+
 
 
 }
@@ -793,7 +810,8 @@ void Player::Draw()
 
 
 	   //自分
-	if (flag == true) {
+	if (flag == true) 
+	{
 		Novice::DrawSprite(player.position.X - player.radius - scrolX, player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
 	}
 		sword.Draw(scrolX);

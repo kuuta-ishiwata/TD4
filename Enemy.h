@@ -34,6 +34,7 @@ public:
 	Vector2 enemyPosition;
 	float radius_ = 32;
 	bool flag = true;
+
 private:
 
 
@@ -43,11 +44,10 @@ private:
 	std::stringstream enemyPopCommands;
 	void LoadEnemyPopData();
 
-
-
 	/// <summary>
 	/// 敵発生コマンドの更新f
 	/// </summary>
+	
 	void UpdateEnemyPopCommands();
 	void EnemySpawn(Vector2& Positon);
 	void EnemyObjUpdate();

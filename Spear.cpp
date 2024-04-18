@@ -16,8 +16,33 @@ void Spear::Initialize()
 
 void Spear::Update()
 {
-	
-	
+	/*
+	if (position[0].x <= enemy_.enemyPosition.x + enemy_.radius_ &&
+		enemy_.enemyPosition.x <= position[0].x + radius_ &&
+		position[0].y <= enemy_.enemyPosition.y + enemy_.radius_ &&
+		enemy_.enemyPosition.y <= position[0].x + radius_)
+	{
+		enemy_.flag = false;
+		equipment = false;
+	}
+
+	if (position[1].x <= enemy_.enemyPosition.x + enemy_.radius_ &&
+		enemy_.enemyPosition.x <= position[1].x + radius_ &&
+		position[1].y <= enemy_.enemyPosition.y + enemy_.radius_ &&
+		enemy_.enemyPosition.y <= position[1].x + radius_)
+	{
+		enemy_.flag = false;
+		equipment = false;
+	}
+	if (position[1].x <= enemy_.enemyPosition.x + enemy_.radius_ &&
+		enemy_.enemyPosition.x <= position[1].x + radius_ &&
+		position[1].y <= enemy_.enemyPosition.y + enemy_.radius_ &&
+		enemy_.enemyPosition.y <= position[1].x + radius_)
+	{
+		enemy_.flag = false;
+		equipment2 = false;
+	}
+	*/
 
 }
 
