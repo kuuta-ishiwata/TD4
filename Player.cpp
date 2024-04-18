@@ -1,5 +1,11 @@
 ﻿#include "Player.h"
 
+
+Player::~Player()
+{
+	
+}
+
 void Player::Initialize()
 {
 
@@ -15,6 +21,10 @@ void Player::Initialize()
 	sword.Initialize();
 	cane_.Initialize();
 	spear_.Initialize();
+
+
+	enemy_.Initialize(enemy_.enemyPosition);
+
 
 }
 
@@ -761,6 +771,19 @@ void Player::Update(char* keys, char* prekeys)
 	}
 
 
+	//敵
+	if (player.position.X <= enemy_.enemyPosition.x + enemy_.radius_ &&
+		enemy_.enemyPosition.x <= player.position.X + player.radius&&
+		player.position.Y <= enemy_.enemyPosition.y + enemy_.radius_&&
+		enemy_.enemyPosition.y <= player.position.Y + player.radius)
+	{
+	
+		//enemy_.ChecAllCollision();
+		enemy_.flag = false;
+	    flag = false;
+		Novice::ScreenPrintf(200,300,"atari",flag);
+
+	}
 
 
 }
@@ -770,10 +793,13 @@ void Player::Draw()
 
 
 	   //自分
-		Novice::DrawSprite(player.position.X - player.radius - scrolX , player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
+	if (flag == true) {
+		Novice::DrawSprite(player.position.X - player.radius - scrolX, player.position.Y - player.radius, irasuto, 1, 1, 0.0f, WHITE);
+	}
 		sword.Draw(scrolX);
 		cane_.Draw(scrolX);
 		spear_.Draw(scrolX);
+
 
 		//剣
 		if (sword.equipment == true)

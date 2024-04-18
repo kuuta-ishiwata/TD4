@@ -4,21 +4,40 @@
 #include "list"
 #include <sstream>
 
-class Player;
 
 class Enemy
 {
 public:
 
 
-	void Initialize();
+	void Initialize(Vector2 position);
 
 	void Update();
 
-	void Draw();
+	void Draw(int X);
+	
+   // void SetPlayer(Player* player) { player_ = player; }
 
-	void SetPlayer(Player* player) { player_ = player; }
+	void ChecAllCollision();
+	float GetcenterX() { return enemyPosition.x; }
+	float GetcenterY() { return enemyPosition.y; }
+	float GetRadius() { return radius_; }
 
+	void SerRadius(float radius) { this->radius_ = radius; }
+	void SetposX(float posX) { this->enemyPosition.x = posX; }
+	void SetposY(float posY) { this->enemyPosition.y = posY; }
+
+	
+
+	Vector2 position;
+
+	Vector2 enemyPosition;
+	float radius_ = 32;
+	bool flag = true;
+private:
+
+
+	Enemy* enemy_;
 	std::list<Enemy*> enemies_;
 	//敵発生コマンド
 	std::stringstream enemyPopCommands;
@@ -27,20 +46,17 @@ public:
 
 
 	/// <summary>
-	/// 敵発生コマンドの更新
+	/// 敵発生コマンドの更新f
 	/// </summary>
 	void UpdateEnemyPopCommands();
-	void EnemySpawn(Vector2& Position);
+	void EnemySpawn(Vector2& Positon);
 	void EnemyObjUpdate();
-	void EnemyObjDraw();
+	void EnemyObjDraw(int X);
+	
+	//Player* player_ = nullptr;
+	int X = 0;
 
-private:
-
-	Player* player_ = nullptr;
-	Vector2 position;
-	float radius = 32;
-	Vector2 enemyPosition;
-
+	
 
 };
 

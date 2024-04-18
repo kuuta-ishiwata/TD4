@@ -4,6 +4,8 @@
 #include "Sword.h"
 #include "cane.h"
 #include "Spear.h"
+#include "Enemy.h"
+
 
 enum BLOCKinfo
 {
@@ -15,12 +17,19 @@ enum BLOCKinfo
 	BLOCK5
 };
 
+
+
+
+
 class Player
 {
 
 public:
 
 	void Initialize();
+
+	~Player();
+
 
 	void Update(char* keys, char* prekeys);
 
@@ -48,14 +57,17 @@ public:
 	Sword sword;
 	cane cane_;
 	Spear spear_;
+	Enemy enemy_;
 
 	float GetcenterX() { return player.position.X; }
 	int GetScrolX() { return scrolX; }
 	float GetcenterY() { return player.position.Y; }
+	float GetRadius() { return player.radius; }
 	void SetposX(float posX) { this->player.position.X = posX; }
 	void SetposY(float posY) { this->player.position.X = posY; }
 
 	void SetScrolX(int scrol) { this->scrolX = scrol; }
+
 
 
 	//ジャンプのフラグ
@@ -114,8 +126,13 @@ public:
 		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 	};
 
+	bool flag = true;
 
 
+private:
+
+	
+	
 
 };
 

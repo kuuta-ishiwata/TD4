@@ -1,58 +1,80 @@
 ﻿#include "Enemy.h"
 #include <fstream>
 #include <cassert>
-void Enemy::Initialize()
+void Enemy::Initialize(Vector2 position)
 {
-	
+	enemyPosition.x = position.x;
+	enemyPosition.y = position.y;
+
 	LoadEnemyPopData();
+
 }
 
 void Enemy::Update()
 {
 
 	UpdateEnemyPopCommands();
-
-}
-
-void Enemy::Draw()
-{
-
-	Novice::DrawBox(enemyPosition.x,enemyPosition.y,radius,radius,0.0f,RED,kFillModeSolid);
+	
 	
 
-	EnemyObjDraw();
+	//enemyPosition.x += 2;
+	//ChecAllCollision();
 
+}
+
+void Enemy::Draw(int X)
+{
+
+	if (flag == true)
+	{
+		Novice::DrawBox(enemyPosition.x - X, enemyPosition.y, radius_, radius_, 0.0f, RED, kFillModeSolid);
+		EnemyObjDraw(X);
+	}
+	
+}
+
+void Enemy::ChecAllCollision()
+{
+	flag = false;
 
 }
 
 
 
-void Enemy::EnemySpawn(Vector2& Position)
+void Enemy::EnemySpawn(Vector2& Positon)
 {
 
 	Enemy* enemy = new Enemy;
 
-	enemy->Initialize();
+	enemy->Initialize(enemyPosition);
 
-	enemy->SetPlayer(player_);
+	//enemy->SetPlayer(player_);
+
 
 	enemies_.push_back(enemy);
+
 
 }
 
 void Enemy::EnemyObjUpdate()
 {
 
+	
+	for (Enemy* enemy : enemies_)
+	{
+		enemy->Update();
+		
+	}
 
 
 }
 
-void Enemy::EnemyObjDraw()
+void Enemy::EnemyObjDraw(int X)
 {
 
 	for (Enemy* enemy : enemies_) 
 	{
-		enemy->Draw();
+		enemy->Draw(X);
 
 	}
 

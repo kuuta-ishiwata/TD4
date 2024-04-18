@@ -33,9 +33,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	cane_ = new cane();
 	cane_->Initialize();
 
+	
 	Enemy* enemy_;
 	enemy_ = new Enemy();
-	enemy_->Initialize();
+	enemy_->Initialize(enemy_->enemyPosition);
 	
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -64,8 +65,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
+
 		player->Draw();
-		enemy_->Draw();
+		enemy_->Draw(player->scrolX);
 		
 
 		//cane_->Draw();
