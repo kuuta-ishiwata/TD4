@@ -1,11 +1,16 @@
 ﻿#include "Enemy.h"
 #include <fstream>
 #include <cassert>
-void Enemy::Initialize(Vector2 position)
+
+
+void Enemy::Initialize(Vector2& position)
 {
+
 	enemyPosition.x = position.x;
 	enemyPosition.y = position.y;
+	
 
+	
 	LoadEnemyPopData();
 
 }
@@ -15,8 +20,6 @@ void Enemy::Update()
 
 	UpdateEnemyPopCommands();
 	
-	
-
 	//enemyPosition.x += 2;
 	//ChecAllCollision();
 
@@ -27,8 +30,10 @@ void Enemy::Draw(int X)
 
 	if (flag == true)
 	{
+
 		Novice::DrawBox(enemyPosition.x - X, enemyPosition.y, radius_, radius_, 0.0f, RED, kFillModeSolid);
 		EnemyObjDraw(X);
+
 	}
 	
 }
@@ -48,7 +53,7 @@ void Enemy::EnemySpawn(Vector2& Positon)
 
 	enemy->Initialize(enemyPosition);
 
-	//enemy->SetPlayer(player_);
+	//enemy->SetPlayer();
 
 
 	enemies_.push_back(enemy);
@@ -59,13 +64,12 @@ void Enemy::EnemySpawn(Vector2& Positon)
 void Enemy::EnemyObjUpdate()
 {
 
-	
 	for (Enemy* enemy : enemies_)
 	{
+
 		enemy->Update();
 		
 	}
-
 
 }
 
@@ -74,6 +78,7 @@ void Enemy::EnemyObjDraw(int X)
 
 	for (Enemy* enemy : enemies_) 
 	{
+
 		enemy->Draw(X);
 
 	}
@@ -83,6 +88,7 @@ void Enemy::EnemyObjDraw(int X)
 
 void Enemy::LoadEnemyPopData()
 {
+
 	// ファイルを開く
 	std::ifstream file{};
 	file.open("NoviceResources/enemyPop.csv");
@@ -98,6 +104,7 @@ void Enemy::LoadEnemyPopData()
 
 void Enemy::UpdateEnemyPopCommands()
 {
+
 	// 1行列分の文字列を入れる変数
 	std::string line;
 
@@ -128,11 +135,9 @@ void Enemy::UpdateEnemyPopCommands()
 			
 			// 敵を発生させる
 
-			enemyPosition = { x, y };
-
+			enemyPosition = (Vector2(x,y));
 
 			EnemySpawn(enemyPosition);
-
 
 		}
 

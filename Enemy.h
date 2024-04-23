@@ -3,42 +3,41 @@
 #include "Vector2.h"
 #include "list"
 #include <sstream>
-
-
+//#include "Player.h"
 class Enemy
 {
 public:
 
 
-	void Initialize(Vector2 position);
+	void Initialize(Vector2& position);
 
 	void Update();
 
 	void Draw(int X);
 	
-   // void SetPlayer(Player* player) { player_ = player; }
+  // void SetPlayer(Player* player) { player_ = player; }
 
 	void ChecAllCollision();
-	float GetcenterX() { return enemyPosition.x; }
-	float GetcenterY() { return enemyPosition.y; }
+	Vector2 Getcenter() { return enemyPosition; }
+	//float GetcenterY() { return enemyPosition.y; }
 	float GetRadius() { return radius_; }
 
 	void SerRadius(float radius) { this->radius_ = radius; }
-	void SetposX(float posX) { this->enemyPosition.x = posX; }
-	void SetposY(float posY) { this->enemyPosition.y = posY; }
+	void Setpos(Vector2 pos) { this->enemyPosition = pos; }
+	//void SetposY(float posY) { this->enemyPosition.y = posY; }
 
 	
 
-	Vector2 position;
-
-	Vector2 enemyPosition;
 	float radius_ = 32;
 	bool flag = true;
+	Vector2 enemyPosition = { };
 
 private:
+	
+	//Player player_;
+	Vector2 position;
 
-
-	Enemy* enemy_;
+	//Enemy* enemy_;
 	std::list<Enemy*> enemies_;
 	//敵発生コマンド
 	std::stringstream enemyPopCommands;

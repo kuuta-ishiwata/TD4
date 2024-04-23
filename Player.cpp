@@ -4,6 +4,7 @@
 Player::~Player()
 {
 	
+
 }
 
 void Player::Initialize()
@@ -11,11 +12,10 @@ void Player::Initialize()
 
 	player =
 	{
-		{64,300},
+		{64,500},
 		{0,0},
 		16
 	};
-
 
 
 	sword.Initialize();
@@ -23,13 +23,15 @@ void Player::Initialize()
 	spear_.Initialize();
 
 
-	enemy_.Initialize(enemy_.enemyPosition);
+	//enemy_.Initialize(enemy_.enemyPosition);
 
 
 }
 
 void Player::Update(char* keys, char* prekeys)
 {
+
+	
 	//右に動く
 	if (keys[DIK_A])
 	{
@@ -63,7 +65,7 @@ void Player::Update(char* keys, char* prekeys)
 		 {
 			 cane_.speed_.x = -5;
 		 }
-		if (player.position.X >= 580 && player.position.X <= 2550)
+		if (player.position.X >= 720 && player.position.X <= 2640)
 		{
 
 			scrolX += player.velocity.X;
@@ -103,7 +105,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			cane_.speed_.x = -5;
 		}
-		if (player.position.X >= 580 && player.position.X <= 2550)
+		if (player.position.X >= 720 && player.position.X <= 2640)
 		{
 
 			scrolX += player.velocity.X;
@@ -144,7 +146,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			cane_.speed_.x = -5;
 		}
-		if (player.position.X >= 580 && player.position.X <= 2550)
+		if (player.position.X >= 720 && player.position.X <= 2640)
 		{
 
 			scrolX += player.velocity.X;
@@ -183,7 +185,7 @@ void Player::Update(char* keys, char* prekeys)
 		 {
 			 cane_.speed_.x = -5;
 		 }
-		if (player.position.X >= 580 && player.position.X <= 2550)
+		if (player.position.X >= 720 && player.position.X <= 2640)
 		{
 
 			scrolX += player.velocity.X;
@@ -475,8 +477,10 @@ void Player::Update(char* keys, char* prekeys)
 				{
 					cane_.position[2].y += 1;
 				}
+
 				top -= 1;
 				down -= 1;
+
 			}
 		}
 
@@ -650,6 +654,9 @@ void Player::Update(char* keys, char* prekeys)
 		sword.equipment = false;
 		sword.equipment2 = false;
 		sword.equipment3 = true;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 		sword.position[2].x = player.position.X;
 		sword.position[2].y = player.position.Y;
 		
@@ -721,8 +728,10 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.caneflag2 = true;
 		
 	}
+
 	if (keys[DIK_6] && cane_.caneflag2 == true)
 	{
+
 		cane_.equipment = false;
 		cane_.equipment2 = true;
 		cane_.equipment3 = false;
@@ -760,7 +769,7 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.caneflag3 = true;
 
 	}
-
+	
 	//槍
 	if (player.position.X <= spear_.position[0].x + spear_.radius_ &&
 		spear_.position[0].x <= player.position.X + player.radius &&
@@ -784,7 +793,8 @@ void Player::Update(char* keys, char* prekeys)
 	}
 
             
-	//敵
+	
+	
 	if (player.position.X <= enemy_.enemyPosition.x + enemy_.radius_&&
 		enemy_.enemyPosition.x <= player.position.X + player.radius&&
 		player.position.Y <= enemy_.enemyPosition.y + enemy_.radius_&&
@@ -793,8 +803,8 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 	    //enemy_.ChecAllCollision();
-		//enemy_.flag = false;
-	    flag = false;
+		enemy_.flag = false;
+	    //flag = false;
 		Novice::ScreenPrintf(200,300,"atari",flag);
 
 	}
@@ -817,8 +827,7 @@ void Player::Draw()
 		sword.Draw(scrolX);
 		cane_.Draw(scrolX);
 		spear_.Draw(scrolX);
-
-
+		
 		//剣
 		if (sword.equipment == true)
 		{

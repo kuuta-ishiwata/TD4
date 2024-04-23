@@ -19,6 +19,7 @@ void Sword::Initialize()
 
 void Sword::Update()
 {
+	/*
 	if (position[0].x <= enemy_.enemyPosition.x + enemy_.radius_ &&
 		enemy_.enemyPosition.x <= position[0].x + radius_ &&
 		position[0].y <= enemy_.enemyPosition.y + enemy_.radius_ &&
@@ -52,7 +53,7 @@ void Sword::Update()
 		enemy_.flag = false;
 		equipment3 = false;
 	}
-	
+	*/
 }
 
 void Sword::Oncollision()

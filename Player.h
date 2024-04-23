@@ -68,7 +68,6 @@ public:
 	void SetScrolX(int scrol) { this->scrolX = scrol; }
 
 
-
 	//ジャンプのフラグ
 	bool jampFlag = false;
 	//重力
@@ -130,7 +129,7 @@ public:
 
 private:
 
-	
+	std::list<std::unique_ptr<Enemy>> enemies;
 	
 
 };

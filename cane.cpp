@@ -17,6 +17,7 @@ void cane::Initialize()
 
 void cane::Update()
 {
+	/*
 	if (position[0].x <= enemy_.enemyPosition.x + enemy_.radius_ &&
 		enemy_.enemyPosition.x <= position[0].x + radius_ &&
 		position[0].y <= enemy_.enemyPosition.y + enemy_.radius_ &&
@@ -50,7 +51,7 @@ void cane::Update()
 		enemy_.flag = false;
 		equipment3 = false;
 	}
-
+	*/
 
 }
 
