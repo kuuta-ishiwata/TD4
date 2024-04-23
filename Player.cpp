@@ -623,6 +623,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (sword.swordshot2 == true)
 	{
+
 		sword.speed_.x = 0;
 		sword.speed_.y = 0;
 		sword.position[1].x += 5;
@@ -792,10 +793,9 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 	    //enemy_.ChecAllCollision();
-		enemy_.flag = false;
+		//enemy_.flag = false;
 	    flag = false;
 		Novice::ScreenPrintf(200,300,"atari",flag);
-
 
 	}
 
