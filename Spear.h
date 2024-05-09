@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Novice.h>
 #include "Vector2.h"
-
+#include "Enemy.h"
 class Spear
 {
 public:
@@ -24,7 +24,7 @@ public:
 
 public:
 
-
+	Enemy enemy_;
 
 	float GetcenterX() { return position[0].x; }
 	float GetcenterY() { return position[0].y; }

@@ -19,7 +19,6 @@ enum BLOCKinfo
 
 
 
-
 class Player
 {
 
@@ -29,12 +28,13 @@ public:
 
 	~Player();
 
-
 	void Update(char* keys, char* prekeys);
 
 	void Draw();
 
+
 public:
+
 
 	typedef struct vector
 	{
@@ -127,9 +127,8 @@ public:
 	bool flag = true;
 
 
-private:
 
-	std::list<std::unique_ptr<Enemy>> enemies;
+
 	
 
 };

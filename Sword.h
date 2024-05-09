@@ -29,7 +29,7 @@ public:
 
 public:
 
-	Enemy enemy_;
+
 
 	float GetcenterX() { return position[0].x; }
 	float GetcenterY() { return position[0].y; }
@@ -67,6 +67,9 @@ public:
 
 	int Ken = Novice::LoadTexture("./ken.png");
 
+private:
+
+	Enemy enemy_;
 
 
 	

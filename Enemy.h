@@ -3,56 +3,48 @@
 #include "Vector2.h"
 #include "list"
 #include <sstream>
+#include "Sword.h"
 //#include "Player.h"
+
 class Enemy
 {
+
 public:
 
-
-	void Initialize(Vector2& position);
+	Vector2 position[4];
+	Vector2 speed_;
+	void Initialize();
 
 	void Update();
 
 	void Draw(int X);
 	
-  // void SetPlayer(Player* player) { player_ = player; }
-
+   
 	void ChecAllCollision();
-	Vector2 Getcenter() { return enemyPosition; }
-	//float GetcenterY() { return enemyPosition.y; }
-	float GetRadius() { return radius_; }
+	float GetcenterX() { return position[0].x; }
+	float GetcenterY() { return position[0].y; }
+	void SetposX(float posX) { this->position[0].x = posX; }
+	void SetposY(float posY) { this->position[0].y = posY; }
 
-	void SerRadius(float radius) { this->radius_ = radius; }
-	void Setpos(Vector2 pos) { this->enemyPosition = pos; }
-	//void SetposY(float posY) { this->enemyPosition.y = posY; }
 
+
+
+	Vector2 GetspeedX() { return speed_; }
+	float Getradius() { return radius_; }
 	
-
+	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
+	void Setradius(float radius) { this->radius_ = radius; }
+	
 	float radius_ = 32;
 	bool flag = true;
-	Vector2 enemyPosition = { };
+	bool flag2 = true;
+	bool flag3 = true;
 
 private:
 	
-	//Player player_;
-	Vector2 position;
 
-	//Enemy* enemy_;
-	std::list<Enemy*> enemies_;
-	//敵発生コマンド
-	std::stringstream enemyPopCommands;
-	void LoadEnemyPopData();
+	
 
-	/// <summary>
-	/// 敵発生コマンドの更新f
-	/// </summary>
-	
-	void UpdateEnemyPopCommands();
-	void EnemySpawn(Vector2& Positon);
-	void EnemyObjUpdate();
-	void EnemyObjDraw(int X);
-	
-	//Player* player_ = nullptr;
 	int X = 0;
 
 	
