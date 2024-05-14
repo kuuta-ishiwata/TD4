@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Novice.h>
 #include "Vector2.h"
-#include "Enemy.h"
+
 class Sword
 {
 
@@ -69,7 +69,7 @@ public:
 
 private:
 
-	Enemy enemy_;
+
 
 
 	

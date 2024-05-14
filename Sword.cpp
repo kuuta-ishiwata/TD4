@@ -19,32 +19,7 @@ void Sword::Update()
 {
 
 	
-	if (position[0].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= position[0].x + radius_)
-	{
-		enemy_.flag = false;
-		Novice::ScreenPrintf(200, 500, "atari", enemy_.flag);
-	}
-
-	if (position[0].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= position[0].x + radius_)
-	{
-		enemy_.flag2 = false;
-
-	}
-
-	if (position[0].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= position[0].x + radius_)
-	{
-		enemy_.flag3 = false;
-
-	}
+	
 
 
 }

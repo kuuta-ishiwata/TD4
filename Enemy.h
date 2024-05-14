@@ -20,7 +20,7 @@ public:
 	void Draw(int X);
 	
    
-	void ChecAllCollision();
+	
 	float GetcenterX() { return position[0].x; }
 	float GetcenterY() { return position[0].y; }
 	void SetposX(float posX) { this->position[0].x = posX; }

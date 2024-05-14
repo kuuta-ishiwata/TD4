@@ -12,7 +12,7 @@ void Enemy::Initialize()
 	position[1].y = 740;
 	position[2].x = 1250;
 	position[2].y = 740;
-
+	
 	
 }
 
@@ -21,7 +21,7 @@ void Enemy::Update()
 
 	if (flag == true)
 	{
-		//position[0].x -= 1;
+		position[0].x -= 1;
 	}
 	if (flag2 == true)
 	{
@@ -56,11 +56,6 @@ void Enemy::Draw(int X)
 	
 }
 
-void Enemy::ChecAllCollision()
-{
 
-	flag = false;
-
-}
 
 
