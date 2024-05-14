@@ -10,7 +10,7 @@ public:
 
 	Vector2 position[4];
 	Vector2 speed_;
-	float radius_;
+	float radius_[4];
 	int isShot_;
 
 
@@ -36,11 +36,11 @@ public:
 	void SetposY(float posY) { this->position[0].y = posY; }
 
 	Vector2 GetspeedX() { return speed_; }
-	float Getradius() { return radius_; }
+	float Getradius() { return radius_[0]; }
 	int GetIsShot() { return isShot_; }
 
 	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
-	void Setradius(float radius) { this->radius_ = radius; }
+	void Setradius(float radius) { this->radius_[0] = radius; }
 	void SetIsShot(int isShot) { this->isShot_ = isShot; }
 
 

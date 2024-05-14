@@ -10,7 +10,9 @@ void cane::Initialize()
 	position[2].x = 1000;
 	position[2].y = 500;
 	speed_ = { 0,0 };
-	this->radius_ = 32.0f;
+	this->radius_[0] = 32.0f;
+	this->radius_[1] = 32.0f;
+	this->radius_[2] = 32.0f;
 	this->isShot_ = false;
 
 }
@@ -18,32 +20,7 @@ void cane::Initialize()
 void cane::Update()
 {
 	
-	if (position[0].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= position[0].x + radius_)
-	{
-		enemy_.flag = false;
-
-	}
-
-	if (position[0].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= position[0].x + radius_)
-	{
-		enemy_.flag2 = false;
-
-	}
-
-	if (position[0].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= position[0].x + radius_ &&
-		position[0].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= position[0].x + radius_)
-	{
-		enemy_.flag3 = false;
-
-	}
+	
 	
 
 }

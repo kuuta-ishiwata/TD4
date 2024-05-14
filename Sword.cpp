@@ -10,7 +10,9 @@ void Sword::Initialize()
 	position[2].x = 2000;
 	position[2].y = 600;
 	speed_= { 0,0 };
-	this->radius_ = 32.0f;
+	this->radius_[0] = 32.0f;
+	this->radius_[1] = 32.0f;
+	this->radius_[2] = 32.0f;
 	this->isShot_ = false;
 
 }
@@ -49,8 +51,7 @@ void Sword::Draw(int x)
 	if (swordflag == false)
 	{
 
-		Novice::DrawSprite(position[0].x-x , position[0].y,Ken,1,1 , 0.0f,WHITE);
-
+		Novice::DrawSprite(position[0].x-x , position[0].y,Ken,1, 1, 0.0f, WHITE);
 	}
 
 

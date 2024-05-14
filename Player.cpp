@@ -37,32 +37,32 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_A])
 	{
 		player.velocity.X = -5;
-		 if (sword.equipment == true)
+		 if (sword.equipment == true&&sword.swordshot ==false)
 		 {
 		 	sword.speed_.x = -5;
 		 }
 
-		 if (sword.equipment2 == true)
+		 if (sword.equipment2 == true&&sword.swordshot2 == false)
 		 {
 			 sword.speed_.x = -5;
 		 }
 
-		 if (sword.equipment3 == true)
+		 if (sword.equipment3 == true&&sword.swordshot3 == false)
 		 {
 			 sword.speed_.x = -5;
 		 }
 
-		 if (cane_.equipment == true)
+		 if (cane_.equipment == true&&cane_.canedshot == false)
 		 {
 			 cane_.speed_.x = -5;
 		 }
 
-		 if (cane_.equipment2 == true)
+		 if (cane_.equipment2 == true && cane_.caneshot2 == false)
 		 {
 			 cane_.speed_.x= -5;
 		 }
 
-		 if (cane_.equipment3 == true)
+		 if (cane_.equipment3 == true && cane_.caneshot3 == false)
 		 {
 			 cane_.speed_.x = -5;
 		 }
@@ -78,31 +78,31 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_A] == 0 && prekeys[DIK_A])
 	{
 		player.velocity.X = 0;
-		if (sword.equipment == true)
+		if (sword.equipment == true&&sword.swordshot ==false)
 		{
 			sword.speed_.x  = 0;
 		}
-		if (sword.equipment2 == true)
+		if (sword.equipment2 == true && sword.swordshot2 == false)
 		{
 			sword.speed_.x = 0;
 		}
-		if (sword.equipment3 == true)
+		if (sword.equipment3 == true && sword.swordshot3 == false)
 		{
 			sword.speed_.x = 0;
 		}
 
 
-		if (cane_.equipment == true)
+		if (cane_.equipment == true&& cane_.canedshot == false)
 		{
 			cane_.speed_.x = -5;
 		}
 
-		if (cane_.equipment2 == true)
+		if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 		{
 			cane_.speed_.x = -5;
 		}
 
-		if (cane_.equipment3 == true)
+		if (cane_.equipment3 == true && cane_.caneshot3 == false)
 		{
 			cane_.speed_.x = -5;
 		}
@@ -120,30 +120,30 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_D])
 	{
 		player.velocity.X = 5;
-	    if (sword.equipment == true)
+	    if (sword.equipment == true&& sword.swordshot ==false)
 	    {
 	    	sword.speed_.x = 5;
 	    }
-		if (sword.equipment2 == true)
+		if (sword.equipment2 == true && sword.swordshot2 == false)
 		{
 			sword.speed_.x = 5;
 		}
-		if (sword.equipment3 == true)
+		if (sword.equipment3 == true && sword.swordshot3 == false)
 		{
 			sword.speed_.x = 5;
 		}
 
-		if (cane_.equipment == true)
+		if (cane_.equipment == true&& cane_.canedshot == false)
 		{
 			cane_.speed_.x = -5;
 		}
 
-		if (cane_.equipment2 == true)
+		if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 		{
 			cane_.speed_.x = -5;
 		}
 
-		if (cane_.equipment3 == true)
+		if (cane_.equipment3 == true && cane_.caneshot3 == false)
 		{
 			cane_.speed_.x = -5;
 		}
@@ -159,30 +159,30 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		player.velocity.X = 0;
-		 if (sword.equipment == true)
+		 if (sword.equipment == true && sword.swordshot == false)
 		 {
 		 	sword.speed_.x = 0;
 		 }
-		 if (sword.equipment2 == true)
+		 if (sword.equipment2 == true && sword.swordshot2 == false)
 		 {
 			 sword.speed_.x = 0;
 		 }
-		 if (sword.equipment3 == true)
+		 if (sword.equipment3 == true && sword.swordshot3 == false)
 		 {
 			 sword.speed_.x = 0;
 		 }
 
-		 if (cane_.equipment == true)
+		 if (cane_.equipment == true&&cane_.canedshot == false)
 		 {
 			 cane_.speed_.x = -5;
 		 }
 
-		 if (cane_.equipment2 == true)
+		 if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 		 {
 			 cane_.speed_.x = -5;
 		 }
 
-		 if (cane_.equipment3 == true)
+		 if (cane_.equipment3 == true && cane_.caneshot3 == false)
 		 {
 			 cane_.speed_.x = -5;
 		 }
@@ -199,33 +199,34 @@ void Player::Update(char* keys, char* prekeys)
 	//重力をかける
 	player.velocity.Y += gravity;
 
-	if (sword.equipment == true)
+	if (sword.equipment == true&& sword.swordshot == false)
 	{
 		sword.speed_.y += gravity;
 
 	}
-	if (sword.equipment2 == true)
-	{
-		sword.speed_.y += gravity;
-
-	}
-	if (sword.equipment3 == true)
+	if (sword.equipment2 == true && sword.swordshot2 == false)
 	{
 		sword.speed_.y += gravity;
 
 	}
 
-	if (cane_.equipment == true)
+	if (sword.equipment3 == true && sword.swordshot3 == false)
+	{
+		sword.speed_.y += gravity;
+
+	}
+
+	if (cane_.equipment == true&&cane_.canedshot == false)
 	{
 		cane_.speed_.y += gravity;
 	}
 
-	if (cane_.equipment2 == true)
+	if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 	{
 		cane_.speed_.y += gravity ;
 	}
 
-	if (cane_.equipment3 == true)
+	if (cane_.equipment3 == true&&cane_.caneshot3 == false)
 	{
 		cane_.speed_.y += gravity;
 	}
@@ -238,31 +239,31 @@ void Player::Update(char* keys, char* prekeys)
 			jampFlag = true;
 			player.velocity.Y -= 20;
 			
-			if (sword.equipment == true)
+			if (sword.equipment == true && sword.swordshot == false)
 			{
 				sword.speed_.y -= 20;
 			}
 
-			if (sword.equipment2 == true)
+			if (sword.equipment2 == true && sword.swordshot2 == false)
 			{
 				sword.speed_.y -= 20;
 			}
 
-			if (sword.equipment3 == true)
+			if (sword.equipment3 == true && sword.swordshot3 == false)
 			{
 				sword.speed_.y -= 20;
 			}
 
-			if (cane_.equipment == true)
+			if (cane_.equipment == true && cane_.canedshot == false)
 			{
 				cane_.speed_.y -= 20;
 			}
 
-			if (cane_.equipment2 == true)
+			if (cane_.equipment2 == true && cane_.caneshot2 == false)
 			{
 				cane_.speed_.y -= 20;
 			}
-			if (cane_.equipment3 == true)
+			if (cane_.equipment3 == true && cane_.caneshot3 == false)
 			{
 				cane_.speed_.y -= 20;
 			}
@@ -290,28 +291,28 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)(down / 32)][(int)((left + 1) / 32)] == 0 &&
 				map[(int)(down / 32)][(int)((right + 1) / 32)] == 0)
 			{
-				if (sword.equipment == true)
+				if (sword.equipment == true&&sword.swordshot == false)
 				{
 					sword.position[0].y += 1;
 					
 				}
-				if (sword.equipment2 == true)
+				if (sword.equipment2 == true && sword.swordshot2 == false)
 				{
 					sword.position[1].y += 1;
 				}
-				if (sword.equipment3 == true)
+				if (sword.equipment3 == true && sword.swordshot3 == false)
 				{
 					sword.position[2].y += 1;
 				}
-				if (cane_.equipment == true)
+				if (cane_.equipment == true&&cane_.canedshot == false)
 				{
 					cane_.position[0].y += 1;
 				}
-				if (cane_.equipment2 == true)
+				if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 				{
 					cane_.position[1].y += 1;
 				}
-				if (cane_.equipment3 == true)
+				if (cane_.equipment3 == true&&cane_.caneshot3 == false)
 				{
 					cane_.position[2].y += 1;
 				}
@@ -332,28 +333,28 @@ void Player::Update(char* keys, char* prekeys)
 
 				player.position.X -= 1;
 				//剣
-				if (sword.equipment == true)
+				if (sword.equipment == true && sword.swordshot == false)
 				{
 					sword.position[0].y += 1;
-
+				
 				}
-				if (sword.equipment2 == true)
+				if (sword.equipment2 == true && sword.swordshot2 == false)
 				{
 					sword.position[1].y += 1;
 				}
-				if (sword.equipment3 == true)
+				if (sword.equipment3 == true && sword.swordshot3 == false)
 				{
 					sword.position[2].y += 1;
 				}
-				if (cane_.equipment == true)
+				if (cane_.equipment == true&&cane_.canedshot == false)
 				{
 					cane_.position[0].y += 1;
 				}
-				if (cane_.equipment2 == true)
+				if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 				{
 					cane_.position[1].y += 1;
 				}
-				if (cane_.equipment3 == true)
+				if (cane_.equipment3 == true && cane_.caneshot3 == false)
 				{
 					cane_.position[2].y += 1;
 				}
@@ -438,28 +439,28 @@ void Player::Update(char* keys, char* prekeys)
 			{
 				player.position.Y += 1;
 				//剣
-				if (sword.equipment == true)
+				if (sword.equipment == true && sword.swordshot == false)
 				{
 					sword.position[0].y += 1;
 				}
-				if (sword.equipment2 == true)
+				if (sword.equipment2 == true && sword.swordshot2 == false)
 				{
 					sword.position[1].y += 1;
 				}
-				if (sword.equipment3 == true)
+				if (sword.equipment3 == true && sword.swordshot3 == false)
 				{
 					sword.position[2].y += 1;
 				}
 				//杖
-				if (cane_.equipment == true)
+				if (cane_.equipment == true&&cane_.canedshot == false)
 				{
 					cane_.position[0].y += 1;
 				}
-				if (cane_.equipment2 == true)
+				if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 				{
 					cane_.position[1].y += 1;
 				}
-				if (cane_.equipment3 == true)
+				if (cane_.equipment3 == true&&cane_.caneshot3 == false)
 				{
 					cane_.position[2].y += 1;
 				}
@@ -490,28 +491,28 @@ void Player::Update(char* keys, char* prekeys)
 			{
 				player.position.Y -= 1;
 				//剣
-				if (sword.equipment == true)
+				if (sword.equipment == true&&sword.swordshot == false)
 				{
 					sword.position[0].y -= 1;
 				}
-				if (sword.equipment2 == true)
+				if (sword.equipment2 == true && sword.swordshot2 == false)
 				{
 					sword.position[1].y -= 1;
 				}
-				if (sword.equipment3 == true)
+				if (sword.equipment3 == true && sword.swordshot3 == false)
 				{
 					sword.position[1].y -= 1;
 				}
 				//杖
-				if (cane_.equipment == true)
+				if (cane_.equipment == true&&cane_.canedshot == false)
 				{
 					cane_.position[0].y += 1;
 				}
-				if (cane_.equipment2 == true)
+				if (cane_.equipment2 == true&&cane_.caneshot2 == false)
 				{
 					cane_.position[1].y += 1;
 				}
-				if (cane_.equipment3 == true)
+				if (cane_.equipment3 == true&& cane_.caneshot3 == false)
 				{
 					cane_.position[2].y += 1;
 				}
@@ -592,9 +593,9 @@ void Player::Update(char* keys, char* prekeys)
 /////////////////////////////////////////////////////////////////////////
 
 	//剣1
-	if (player.position.X <= sword.position[0].x + sword.radius_ &&
+	if (player.position.X <= sword.position[0].x + sword.radius_[0] &&
 		sword.position[0].x <= player.position.X + player.radius &&
-		player.position.Y <= sword.position[0].y + sword.radius_ &&
+		player.position.Y <= sword.position[0].y + sword.radius_[0] &&
 		sword.position[0].y <= player.position.Y + player.radius)
 
 	{
@@ -613,8 +614,8 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.equipment2 = false;
 		cane_.equipment3 = false;
 		
-		sword.position[0].x = player.position.X;
-		sword.position[0].y = player.position.Y;
+		sword.position[0].x = player.position.X-60;
+		sword.position[0].y = player.position.Y-10;
 		
 	}
 	if (keys[DIK_O] && sword.swordflag == true && sword.equipment == true)
@@ -632,11 +633,17 @@ void Player::Update(char* keys, char* prekeys)
 		sword.position[0].x += 5;
 
 	}
+	//if (sword.equipment == true&&sword.swordshot == true)
+	//{
+	//	sword.equipment = false;
+	//    sword.swordshot == true;
+	//}
+
 
 	//剣２
-	if (player.position.X <= sword.position[1].x + sword.radius_ &&
+	if (player.position.X <= sword.position[1].x + sword.radius_[1] &&
 		sword.position[1].x <= player.position.X + player.radius &&
-		player.position.Y <= sword.position[1].y + sword.radius_ &&
+		player.position.Y <= sword.position[1].y + sword.radius_[1] &&
 		sword.position[1].y <= player.position.Y + player.radius)
 
 	{
@@ -655,8 +662,8 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.equipment2 = false;
 		cane_.equipment3 = false;
 		
-		sword.position[1].x = player.position.X;
-		sword.position[1].y = player.position.Y;
+		sword.position[1].x = player.position.X-70;
+		sword.position[1].y = player.position.Y-10;
 
 
 	}
@@ -680,9 +687,9 @@ void Player::Update(char* keys, char* prekeys)
 
 
 	//3
-	if (player.position.X <= sword.position[2].x + sword.radius_ &&
+	if (player.position.X <= sword.position[2].x + sword.radius_[2] &&
 		sword.position[2].x <= player.position.X + player.radius &&
-		player.position.Y <= sword.position[2].y + sword.radius_ &&
+		player.position.Y <= sword.position[2].y + sword.radius_[2] &&
 		sword.position[2].y <= player.position.Y + player.radius)
 
 	{
@@ -702,8 +709,8 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.equipment2 = false;
 		cane_.equipment3 = false;
 	
-		sword.position[2].x = player.position.X;
-		sword.position[2].y = player.position.Y;
+		sword.position[2].x = player.position.X-70;
+		sword.position[2].y = player.position.Y-10;
 		
 
 	}
@@ -724,9 +731,9 @@ void Player::Update(char* keys, char* prekeys)
 
 
 	//杖
-	if (player.position.X <= cane_.position[0].x + cane_.radius_ &&
+	if (player.position.X <= cane_.position[0].x + cane_.radius_[0] &&
 		cane_.position[0].x <= player.position.X + player.radius &&
-		player.position.Y <= cane_.position[0].y + cane_.radius_ &&
+		player.position.Y <= cane_.position[0].y + cane_.radius_[0] &&
 		cane_.position[0].y <= player.position.Y + player.radius)
 
 	{
@@ -752,10 +759,11 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_Y] && cane_.caneflag == true&&cane_.equipment == true)
 	{
 
-		cane_.caneshot2 = true;
+		cane_.canedshot = true;
+
 	}
 
-	if (cane_.caneshot2 == true)
+	if (cane_.canedshot == true)
 	{
 		cane_.speed_.x = 0;
 		cane_.speed_.y = 0;
@@ -765,9 +773,9 @@ void Player::Update(char* keys, char* prekeys)
 
 
 	//杖二本目
-	if (player.position.X <= cane_.position[1].x + cane_.radius_ &&
+	if (player.position.X <= cane_.position[1].x + cane_.radius_[1] &&
 		cane_.position[1].x <= player.position.X + player.radius &&
-		player.position.Y <= cane_.position[1].y + cane_.radius_ &&
+		player.position.Y <= cane_.position[1].y + cane_.radius_[1] &&
 		cane_.position[1].y <= player.position.Y + player.radius)
 
 	{
@@ -791,13 +799,13 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (keys[DIK_T]&& cane_.caneflag2 == true&&cane_.equipment3 == true)
+	if (keys[DIK_T]&& cane_.caneflag2 == true &&cane_.equipment2 == true)
 	{
 
-		cane_.caneshot3 = true;
+		cane_.caneshot2 = true;
 	}
 
-	if (sword.swordshot3 == true)
+	if (cane_.caneshot2 == true)
 	{
 		cane_.speed_.x = 0;
 		cane_.speed_.y = 0;
@@ -806,9 +814,9 @@ void Player::Update(char* keys, char* prekeys)
 	}
 
 
-	if (player.position.X <= cane_.position[2].x + cane_.radius_ &&
+	if (player.position.X <= cane_.position[2].x + cane_.radius_[2] &&
 		cane_.position[2].x <= player.position.X + player.radius &&
-		player.position.Y <= cane_.position[2].y + cane_.radius_ &&
+		player.position.Y <= cane_.position[2].y + cane_.radius_[2] &&
 		cane_.position[2].y <= player.position.Y + player.radius)
 
 	{
@@ -843,9 +851,9 @@ void Player::Update(char* keys, char* prekeys)
             
 	
 	
-	if (player.position.X <= enemy_.position[0].x + enemy_.radius_ &&
+	if (player.position.X <= enemy_.position[0].x + enemy_.radius_[0] &&
 		enemy_.position[0].x <= player.position.X + player.radius &&
-		player.position.Y <= enemy_.position[0].y + enemy_.radius_ &&
+		player.position.Y <= enemy_.position[0].y + enemy_.radius_[0] &&
 		enemy_.position[0].y <= player.position.Y + player.radius)
 	{
 	    //enemy_.ChecAllCollision();
@@ -855,9 +863,9 @@ void Player::Update(char* keys, char* prekeys)
 		Novice::ScreenPrintf(200,300,"atari",enemy_.flag);
 
 	}
-	if (player.position.X <= enemy_.position[1].x + enemy_.radius_ &&
+	if (player.position.X <= enemy_.position[1].x + enemy_.radius_[1] &&
 		enemy_.position[1].x <= player.position.X + player.radius &&
-		player.position.Y <= enemy_.position[1].y + enemy_.radius_ &&
+		player.position.Y <= enemy_.position[1].y + enemy_.radius_[1] &&
 		enemy_.position[1].y <= player.position.Y + player.radius)
 	{
 		//enemy_.ChecAllCollision();
@@ -866,9 +874,9 @@ void Player::Update(char* keys, char* prekeys)
 		Novice::ScreenPrintf(200, 300, "atari", enemy_.flag2);
 
 	}
-	if (player.position.X <= enemy_.position[2].x + enemy_.radius_ &&
+	if (player.position.X <= enemy_.position[2].x + enemy_.radius_[2] &&
 		enemy_.position[2].x <= player.position.X + player.radius &&
-		player.position.Y <= enemy_.position[2].y + enemy_.radius_ &&
+		player.position.Y <= enemy_.position[2].y + enemy_.radius_[2] &&
 		enemy_.position[2].y <= player.position.Y + player.radius)
 	{
 		//enemy_.ChecAllCollision();
@@ -880,151 +888,151 @@ void Player::Update(char* keys, char* prekeys)
 
 
 	///////剣
-	if (sword.position[0].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= sword.position[0].x + sword.radius_ &&
-		sword.position[0].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= sword.position[0].x + sword.radius_)
+	if (sword.position[0].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= sword.position[0].x + sword.radius_[0] &&
+		sword.position[0].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= sword.position[0].x + sword.radius_[0])
 	{
 		enemy_.flag = false;
 		Novice::ScreenPrintf(200, 500, "atari", enemy_.flag);
 	}
 
-	if (sword.position[0].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= sword.position[0].x + sword.radius_ &&
-		sword.position[0].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= sword.position[0].x + sword.radius_)
+	if (sword.position[0].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= sword.position[0].x + sword.radius_[0] &&
+		sword.position[0].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= sword.position[0].x + sword.radius_[0])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (sword.position[0].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= sword.position[0].x + sword.radius_ &&
-		sword.position[0].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= sword.position[0].x + sword.radius_)
+	if (sword.position[0].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= sword.position[0].x + sword.radius_[0] &&
+		sword.position[0].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= sword.position[0].x + sword.radius_[0])
 	{
 		enemy_.flag3 = false;
 	}
 
-	if (sword.position[1].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= sword.position[1].x + sword.radius_ &&
-		sword.position[1].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= sword.position[1].x + sword.radius_)
+	if (sword.position[1].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= sword.position[1].x + sword.radius_[1] &&
+		sword.position[1].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= sword.position[1].x + sword.radius_[1])
 	{
 		enemy_.flag = false;
 		Novice::ScreenPrintf(200, 500, "atari", enemy_.flag);
 	}
 
-	if (sword.position[1].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= sword.position[1].x + sword.radius_ &&
-		sword.position[1].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= sword.position[1].x + sword.radius_)
+	if (sword.position[1].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= sword.position[1].x + sword.radius_[1] &&
+		sword.position[1].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= sword.position[1].x + sword.radius_[1])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (sword.position[1].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= sword.position[1].x + sword.radius_ &&
-		sword.position[1].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= sword.position[1].x + sword.radius_)
+	if (sword.position[1].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= sword.position[1].x + sword.radius_[1] &&
+		sword.position[1].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= sword.position[1].x + sword.radius_[1])
 	{
 		enemy_.flag3 = false;
 	}
 	
-	if (sword.position[2].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= sword.position[2].x + sword.radius_ &&
-		sword.position[2].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= sword.position[2].x + sword.radius_)
+	if (sword.position[2].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= sword.position[2].x + sword.radius_[2] &&
+		sword.position[2].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= sword.position[2].x + sword.radius_[2])
 	{
 		enemy_.flag = false;
 		Novice::ScreenPrintf(200, 500, "atari", enemy_.flag);
 	}
 
-	if (sword.position[2].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= sword.position[2].x + sword.radius_ &&
-		sword.position[2].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= sword.position[2].x + sword.radius_)
+	if (sword.position[2].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= sword.position[2].x + sword.radius_[2] &&
+		sword.position[2].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= sword.position[2].x + sword.radius_[2])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (sword.position[2].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= sword.position[2].x + sword.radius_ &&
-		sword.position[2].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= sword.position[2].x + sword.radius_)
+	if (sword.position[2].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= sword.position[2].x + sword.radius_[2] &&
+		sword.position[2].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= sword.position[2].x + sword.radius_[2])
 	{
 		enemy_.flag3 = false;
 	}
 
 	//
 	
-	if (cane_.position[0].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= cane_.position[0].x + cane_.radius_ &&
-		cane_.position[0].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= cane_.position[0].y + cane_.radius_)
+	if (cane_.position[0].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= cane_.position[0].x + cane_.radius_[0] &&
+		cane_.position[0].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= cane_.position[0].y + cane_.radius_[0])
 	{
 		enemy_.flag = false;
 	}
 
-	if (cane_.position[0].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= cane_.position[0].x + cane_.radius_ &&
-		cane_.position[0].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= cane_.position[0].y + cane_.radius_)
+	if (cane_.position[0].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= cane_.position[0].x + cane_.radius_[0] &&
+		cane_.position[0].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= cane_.position[0].y + cane_.radius_[0])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (cane_.position[0].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= cane_.position[0].x + cane_.radius_ &&
-		cane_.position[0].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= cane_.position[0].y + cane_.radius_)
+	if (cane_.position[0].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= cane_.position[0].x + cane_.radius_[0] &&
+		cane_.position[0].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= cane_.position[0].y + cane_.radius_[0])
 	{
 		enemy_.flag3 = false;
 	}
 
-	if (cane_.position[1].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= cane_.position[1].x + cane_.radius_ &&
-		cane_.position[1].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= cane_.position[1].y + cane_.radius_)
+	if (cane_.position[1].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= cane_.position[1].x + cane_.radius_[1] &&
+		cane_.position[1].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= cane_.position[1].y + cane_.radius_[1])
 	{
 		enemy_.flag = false;
 	}
 
-	if (cane_.position[1].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= cane_.position[1].x + cane_.radius_ &&
-		cane_.position[1].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= cane_.position[1].y + cane_.radius_)
+	if (cane_.position[1].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= cane_.position[1].x + cane_.radius_[1] &&
+		cane_.position[1].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= cane_.position[1].y + cane_.radius_[1])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (cane_.position[1].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= cane_.position[1].x + cane_.radius_ &&
-		cane_.position[1].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= cane_.position[1].y + cane_.radius_)
+	if (cane_.position[1].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= cane_.position[1].x + cane_.radius_[1] &&
+		cane_.position[1].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= cane_.position[1].y + cane_.radius_[1])
 	{
 		enemy_.flag3 = false;
 	}
 
-	if (cane_.position[2].x <= enemy_.position[0].x + enemy_.radius_ &&
-		enemy_.position[0].x <= cane_.position[2].x + cane_.radius_ &&
-		cane_.position[2].y <= enemy_.position[0].y + enemy_.radius_ &&
-		enemy_.position[0].y <= cane_.position[2].y + cane_.radius_)
+	if (cane_.position[2].x <= enemy_.position[0].x + enemy_.radius_[0] &&
+		enemy_.position[0].x <= cane_.position[2].x + cane_.radius_[2] &&
+		cane_.position[2].y <= enemy_.position[0].y + enemy_.radius_[0] &&
+		enemy_.position[0].y <= cane_.position[2].y + cane_.radius_[2])
 	{
 		enemy_.flag = false;
 	}
 
-	if (cane_.position[2].x <= enemy_.position[1].x + enemy_.radius_ &&
-		enemy_.position[1].x <= cane_.position[2].x + cane_.radius_ &&
-		cane_.position[2].y <= enemy_.position[1].y + enemy_.radius_ &&
-		enemy_.position[1].y <= cane_.position[2].y + cane_.radius_)
+	if (cane_.position[2].x <= enemy_.position[1].x + enemy_.radius_[1] &&
+		enemy_.position[1].x <= cane_.position[2].x + cane_.radius_[2] &&
+		cane_.position[2].y <= enemy_.position[1].y + enemy_.radius_[1] &&
+		enemy_.position[1].y <= cane_.position[2].y + cane_.radius_[2])
 	{
 		enemy_.flag2 = false;
 	}
 
-	if (cane_.position[2].x <= enemy_.position[2].x + enemy_.radius_ &&
-		enemy_.position[2].x <= cane_.position[2].x + cane_.radius_ &&
-		cane_.position[2].y <= enemy_.position[2].y + enemy_.radius_ &&
-		enemy_.position[2].y <= cane_.position[2].y + cane_.radius_)
+	if (cane_.position[2].x <= enemy_.position[2].x + enemy_.radius_[2] &&
+		enemy_.position[2].x <= cane_.position[2].x + cane_.radius_[2] &&
+		cane_.position[2].y <= enemy_.position[2].y + enemy_.radius_[2] &&
+		enemy_.position[2].y <= cane_.position[2].y + cane_.radius_[2])
 	{
 		enemy_.flag3 = false;
 	}
@@ -1043,11 +1051,12 @@ void Player::Draw()
 
 	}
 
+
 		sword.Draw(scrolX);
 		cane_.Draw(scrolX);
 		spear_.Draw(scrolX);
 		enemy_.Draw(scrolX);
-
+		//Novice::DrawSprite(0-scrolX, 0, view, 1, 1, 0.0f, WHITE);
 
 		//剣
 		if (sword.equipment == true)
@@ -1085,17 +1094,17 @@ void Player::Draw()
 		{
 			Novice::DrawSprite(cane_.position[2].x - scrolX, cane_.position[2].y - 20, tue, 1, 1, 0.0f, WHITE);
 		}
-
+		
 		
 	//グリッド線描画
-	for (int i = 0; i < 50; i++)
-	{
-
-		Novice::DrawLine(i * 32, 0, i * 32, 1280, 0xAAAAAAFF);
-		Novice::DrawLine(0, i * 32, 1280, i * 32, 0xAAAAAAFF);
-
-	}
-
+	//for (int i = 0; i < 50; i++)
+	//{
+	//
+	//	Novice::DrawLine(i * 32, 0, i * 32, 1280, 0xAAAAAAFF);
+	//	Novice::DrawLine(0, i * 32, 1280, i * 32, 0xAAAAAAFF);
+	//
+	//}
+		
 	//ブロック描画
 	for (int y = 0; y < 100; y++)
 	{
@@ -1136,6 +1145,8 @@ void Player::Draw()
 				}
 
 			}
+			
+
 		}
 	}
 

@@ -30,12 +30,12 @@ public:
 
 
 	Vector2 GetspeedX() { return speed_; }
-	float Getradius() { return radius_; }
+	float Getradius() { return radius_[0]; }
 	
 	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
-	void Setradius(float radius) { this->radius_ = radius; }
+	void Setradius(float radius) { this->radius_[0] = radius; }
 	
-	float radius_ = 32;
+	float radius_[4];
 	bool flag = true;
 	bool flag2 = true;
 	bool flag3 = true;
