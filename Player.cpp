@@ -267,7 +267,6 @@ void Player::Update(char* keys, char* prekeys)
 			{
 				cane_.speed_.y -= 20;
 			}
-			
 		}
 	}
 
@@ -858,7 +857,7 @@ void Player::Update(char* keys, char* prekeys)
 	{
 	    //enemy_.ChecAllCollision();
 
-		//flag = false;
+		flag = false;
 	    //flag = false;
 		Novice::ScreenPrintf(200,300,"atari",enemy_.flag);
 
@@ -869,7 +868,7 @@ void Player::Update(char* keys, char* prekeys)
 		enemy_.position[1].y <= player.position.Y + player.radius)
 	{
 		//enemy_.ChecAllCollision();
-		//flag = false;
+		flag = false;
 		//flag = false;
 		Novice::ScreenPrintf(200, 300, "atari", enemy_.flag2);
 
@@ -880,7 +879,7 @@ void Player::Update(char* keys, char* prekeys)
 		enemy_.position[2].y <= player.position.Y + player.radius)
 	{
 		//enemy_.ChecAllCollision();
-		//flag = false;
+		flag = false;
 		//flag = false;
 		Novice::ScreenPrintf(200, 300, "atari", enemy_.flag3);
 
@@ -893,8 +892,11 @@ void Player::Update(char* keys, char* prekeys)
 		sword.position[0].y <= enemy_.position[0].y + enemy_.radius_[0] &&
 		enemy_.position[0].y <= sword.position[0].x + sword.radius_[0])
 	{
+
 		enemy_.flag = false;
+
 		Novice::ScreenPrintf(200, 500, "atari", enemy_.flag);
+
 	}
 
 	if (sword.position[0].x <= enemy_.position[1].x + enemy_.radius_[1] &&
@@ -1145,6 +1147,10 @@ void Player::Draw()
 				}
 
 			}
+
+
+
+			
 			
 
 		}

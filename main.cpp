@@ -51,7 +51,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-
+		
 		player->Update(keys, preKeys);
 		sword->Update();
 		cane_->Update();
@@ -68,6 +68,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 
 		player->Draw();
+
 		//
 		//enemy_->Draw(player->scrolX);
 		

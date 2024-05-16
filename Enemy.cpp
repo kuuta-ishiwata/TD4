@@ -34,7 +34,6 @@ void Enemy::Update()
 		position[2].x -= 1;
 	}
 	
-	
 
 
 }
