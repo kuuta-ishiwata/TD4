@@ -33,8 +33,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	cane_ = new cane();
 	cane_->Initialize();
 
-	
-	
+	int view = Novice::LoadTexture("./sky.png");
+	int op = Novice::LoadTexture("./opening.png");
+	int opword = Novice::LoadTexture("./openingword.png");
+	int Gameover = Novice::LoadTexture("./GameOver-.png");
+	int scene = 0;
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -51,11 +54,44 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+	
+	
+		switch (scene) {
 		
-		player->Update(keys, preKeys);
-		sword->Update();
-		cane_->Update();
-	    
+		case 0:
+			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
+			{
+				scene = 1;
+			}
+			
+			break;
+		
+		case 1:
+			if (keys[DIK_M] && preKeys[DIK_M] == 0)
+			{
+
+				scene = 0;
+
+				
+				
+
+			}
+			player->Update(keys, preKeys);
+
+			sword->Update();
+			cane_->Update();
+		
+			break;
+
+		case 2:
+			if (keys[DIK_K] && preKeys[DIK_K] == 0)
+			{
+				scene = 2;
+			}
+		
+			break;
+		}
+
 		
 		
 		///
@@ -65,10 +101,26 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
+		
+		if (scene == 1)
+		{
+			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
+			player->Draw();
 
+		}
+		else if(scene ==2)
+		{
+			Novice::DrawSprite(0, 0, Gameover, 1, 1, 0.0f, WHITE);
+		}
+		else
+		{
+			
+			Novice::DrawSprite(0, 0, op, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(0, 0, opword, 1, 1, 0.0f, WHITE);
 
-		player->Draw();
-
+			
+		}
+	
 		//
 		//enemy_->Draw(player->scrolX);
 		

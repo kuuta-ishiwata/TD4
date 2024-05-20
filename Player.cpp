@@ -463,6 +463,7 @@ void Player::Update(char* keys, char* prekeys)
 				{
 					cane_.position[2].y += 1;
 				}
+				
 				top += 1;
 				down += 1;
 
@@ -515,7 +516,7 @@ void Player::Update(char* keys, char* prekeys)
 				{
 					cane_.position[2].y += 1;
 				}
-
+				
 				top -= 1;
 				down -= 1;
 
@@ -685,7 +686,7 @@ void Player::Update(char* keys, char* prekeys)
 
 
 
-	//3
+	//32w
 	if (player.position.X <= sword.position[2].x + sword.radius_[2] &&
 		sword.position[2].x <= player.position.X + player.radius &&
 		player.position.Y <= sword.position[2].y + sword.radius_[2] &&
@@ -711,12 +712,14 @@ void Player::Update(char* keys, char* prekeys)
 		sword.position[2].x = player.position.X-70;
 		sword.position[2].y = player.position.Y-10;
 		
-
 	}
+
+
 	if (keys[DIK_U] && sword.swordflag3 == true&&sword.equipment3 == true)
 	{
 
 		sword.swordshot3 = true;
+
 	}
 
 	if (sword.swordshot3 == true)
@@ -740,8 +743,10 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.caneflag = true;
 
 	}
+
 	if (keys[DIK_7] && cane_.caneflag == true)
 	{
+
 		cane_.equipment = true;
 		cane_.equipment2 = false;
 		cane_.equipment3 = false;
@@ -780,7 +785,7 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		cane_.caneflag2 = true;
-		
+
 	}
 
 	if (keys[DIK_6] && cane_.caneflag2 == true)
@@ -849,7 +854,7 @@ void Player::Update(char* keys, char* prekeys)
 
             
 	
-	
+	//playerと敵当たり判定
 	if (player.position.X <= enemy_.position[0].x + enemy_.radius_[0] &&
 		enemy_.position[0].x <= player.position.X + player.radius &&
 		player.position.Y <= enemy_.position[0].y + enemy_.radius_[0] &&
@@ -877,7 +882,9 @@ void Player::Update(char* keys, char* prekeys)
 		enemy_.position[2].x <= player.position.X + player.radius &&
 		player.position.Y <= enemy_.position[2].y + enemy_.radius_[2] &&
 		enemy_.position[2].y <= player.position.Y + player.radius)
+
 	{
+
 		//enemy_.ChecAllCollision();
 		flag = false;
 		//flag = false;
@@ -1007,6 +1014,8 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			enemy_.flag = false;
 			cane_.caneflag = false;
+			cane_.equipment = false;
+
 		}
 	}
 
@@ -1019,6 +1028,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			enemy_.flag2 = false;
 			cane_.caneflag = false;
+			cane_.equipment = false;
 		}
 	}
 	if (cane_.caneflag == true && enemy_.flag3 == true)
@@ -1030,6 +1040,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			enemy_.flag3 = false;
 			cane_.caneflag = false;
+			cane_.equipment = false;
 		}
 	}
 
@@ -1042,6 +1053,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			enemy_.flag = false;
 			cane_.caneflag2 = false;
+			cane_.equipment2 = false;
 		}
 	}
 
@@ -1054,6 +1066,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			enemy_.flag2 = false;
 			cane_.caneflag2 = false;
+			cane_.equipment2 = false;
 		}
 	}
 	
@@ -1065,7 +1078,8 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[2].y <= cane_.position[1].y + cane_.radius_[1])
 		{
 			enemy_.flag3 = false;
-			cane_.caneflag3 = false;
+			cane_.caneflag2 = false;
+			cane_.equipment2 = false;
 		}
 	}
 
@@ -1077,6 +1091,8 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[0].y <= cane_.position[2].y + cane_.radius_[2])
 		{
 			enemy_.flag = false;
+			cane_.caneflag3 = false;
+			cane_.equipment3 = false;
 		}
 	}
 	if (cane_.caneflag3 == true && enemy_.flag2 == true)
@@ -1087,6 +1103,8 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[1].y <= cane_.position[2].y + cane_.radius_[2])
 		{
 			enemy_.flag2 = false;
+			cane_.caneflag3 == false;
+			cane_.equipment3 = false;
 		}
 	}
 
@@ -1098,6 +1116,8 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[2].y <= cane_.position[2].y + cane_.radius_[2])
 		{
 			enemy_.flag3 = false;
+			cane_.caneflag3 == false;
+			cane_.equipment3 = false;
 		}
 	}
 }
@@ -1119,8 +1139,7 @@ void Player::Draw()
 		cane_.Draw(scrolX);
 		spear_.Draw(scrolX);
 		enemy_.Draw(scrolX);
-		//Novice::DrawSprite(0-scrolX, 0, view, 1, 1, 0.0f, WHITE);
-
+	
 		//剣
 		if (sword.equipment == true)
 		{
