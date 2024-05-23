@@ -84,7 +84,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			break;
 
 		case 2:
-			if (keys[DIK_K] && preKeys[DIK_K] == 0)
+			if (player->flag == false)
 			{
 				scene = 2;
 			}

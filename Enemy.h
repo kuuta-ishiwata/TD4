@@ -11,7 +11,7 @@ class Enemy
 
 public:
 
-	Vector2 position[4];
+	Vector2 position[7];
 	Vector2 speed_;
 	void Initialize();
 
@@ -35,16 +35,18 @@ public:
 	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
 	void Setradius(float radius) { this->radius_[0] = radius; }
 	
-	float radius_[4];
+	float radius_[7];
 	bool flag = true;
 	bool flag2 = true;
 	bool flag3 = true;
-
+	bool suraimuflag = true;
+	bool suraimuflag2 = true;
+	bool suraimuflag3 = true;
 private:
 	
 
-	
-
+	int enemy = Novice::LoadTexture("./enemy.png");
+	int suraimu = Novice::LoadTexture("./suraimu.png");
 	int X = 0;
 
 	
