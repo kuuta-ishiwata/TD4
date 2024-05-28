@@ -6,6 +6,7 @@
 #include "Sword.h"
 #include "cane.h"
 #include "Map.h"
+#include  "Input.h"
 
 const char kWindowTitle[] = "LE2C_02_イシワタクウタ";
 
@@ -45,6 +46,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	maou = Novice::LoadAudio("./maou.wav");
 
 
+	
+
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
 		// フレームの開始
@@ -61,11 +64,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 	
-	
+		XINPUT_STATE joyState;
+
 		switch (scene) {
 		
 		case 0:
 			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
+			{
+				scene = 1;
+			}
+			else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A)
 			{
 				scene = 1;
 			}

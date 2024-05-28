@@ -196,6 +196,165 @@ void Player::Update(char* keys, char* prekeys)
 	
 		
 	}
+
+	if (Input::GetInstance()->GetJoystickState(0, joyState)) {
+		if ((float)joyState.Gamepad.sThumbLX < 0) {
+			player.velocity.X = -5;
+			if (sword.equipment == true && sword.swordshot == false)
+			{
+				sword.speed_.x = -5;
+			}
+
+			if (sword.equipment2 == true && sword.swordshot2 == false)
+			{
+				sword.speed_.x = -5;
+			}
+
+			if (sword.equipment3 == true && sword.swordshot3 == false)
+			{
+				sword.speed_.x = -5;
+			}
+
+			if (cane_.equipment == true && cane_.canedshot == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment2 == true && cane_.caneshot2 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment3 == true && cane_.caneshot3 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+			if (player.position.X >= 800 && player.position.X <= 4500)
+			{
+
+				scrolX += player.velocity.X;
+
+			}
+		}
+		else if ((float)joyState.Gamepad.sThumbLX > 0) {
+			player.velocity.X = 5;
+			if (sword.equipment == true && sword.swordshot == false)
+			{
+				sword.speed_.x = 5;
+			}
+			if (sword.equipment2 == true && sword.swordshot2 == false)
+			{
+				sword.speed_.x = 5;
+			}
+			if (sword.equipment3 == true && sword.swordshot3 == false)
+			{
+				sword.speed_.x = 5;
+			}
+
+			if (cane_.equipment == true && cane_.canedshot == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment2 == true && cane_.caneshot2 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment3 == true && cane_.caneshot3 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+			if (player.position.X >= 800 && player.position.X <= 4500)
+			{
+
+				scrolX += player.velocity.X;
+
+			}
+		}
+		else {
+			player.velocity.X = 0;
+			if (sword.equipment == true && sword.swordshot == false)
+			{
+				sword.speed_.x = 0;
+			}
+			if (sword.equipment2 == true && sword.swordshot2 == false)
+			{
+				sword.speed_.x = 0;
+			}
+			if (sword.equipment3 == true && sword.swordshot3 == false)
+			{
+				sword.speed_.x = 0;
+			}
+
+			if (cane_.equipment == true && cane_.canedshot == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment2 == true && cane_.caneshot2 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+
+			if (cane_.equipment3 == true && cane_.caneshot3 == false)
+			{
+				cane_.speed_.x = -5;
+			}
+			if (player.position.X >= 800 && player.position.X <= 4500)
+			{
+
+				scrolX += player.velocity.X;
+
+
+			}
+		}
+
+		// ジャンプ
+		if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A)
+		{
+
+			if (jampFlag == false)
+			{
+
+				jampFlag = true;
+				player.velocity.Y -= 20;
+
+				if (sword.equipment == true && sword.swordshot == false)
+				{
+					sword.speed_.y -= 20;
+				}
+
+				if (sword.equipment2 == true && sword.swordshot2 == false)
+				{
+					sword.speed_.y -= 20;
+				}
+
+				if (sword.equipment3 == true && sword.swordshot3 == false)
+				{
+					sword.speed_.y -= 20;
+				}
+
+				if (cane_.equipment == true && cane_.canedshot == false)
+				{
+					cane_.speed_.y -= 20;
+				}
+
+				if (cane_.equipment2 == true && cane_.caneshot2 == false)
+				{
+					cane_.speed_.y -= 20;
+				}
+				if (cane_.equipment3 == true && cane_.caneshot3 == false)
+				{
+					cane_.speed_.y -= 20;
+				}
+			}
+		}
+	}
+
+
+
+
 	//重力をかける
 	player.velocity.Y += gravity;
 
