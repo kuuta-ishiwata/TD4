@@ -24,10 +24,12 @@ void Player::Initialize()
 
 	enemy_.Initialize();
 	
+	
 }
 
 void Player::Update(char* keys, char* prekeys)
 {
+
 
 	sword.Update();
 	cane_.Update();
@@ -67,15 +69,15 @@ void Player::Update(char* keys, char* prekeys)
 		 {
 			 cane_.speed_.x = -5;
 		 }
-		if (player.position.X >= 720 && player.position.X <= 2640)
+
+		if (player.position.X >= 1500 && player.position.X <= 4500)
 		{
 
 			scrolX += player.velocity.X;
 
 		}
-		
-		
 	}
+
 	if (keys[DIK_A] == 0 && prekeys[DIK_A])
 	{
 		player.velocity.X = 0;
@@ -107,11 +109,10 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			cane_.speed_.x = -5;
 		}
-		if (player.position.X >= 720 && player.position.X <= 2640)
-		{
 
+		if (player.position.X >= 1500 && player.position.X <= 4500)
+		{
 			scrolX += player.velocity.X;
-		
 		}
 
 		
@@ -148,7 +149,7 @@ void Player::Update(char* keys, char* prekeys)
 		{
 			cane_.speed_.x = -5;
 		}
-		if (player.position.X >= 720 && player.position.X <= 2640)
+		if (player.position.X >= 800 && player.position.X <= 4500)
 		{
 
 			scrolX += player.velocity.X;
@@ -187,12 +188,11 @@ void Player::Update(char* keys, char* prekeys)
 		 {
 			 cane_.speed_.x = -5;
 		 }
-		if (player.position.X >= 720 && player.position.X <= 2640)
+		if (player.position.X >= 800 && player.position.X <= 4500)
 		{
 
 			scrolX += player.velocity.X;
-			
-		
+
 		}
 	
 		
@@ -321,6 +321,8 @@ void Player::Update(char* keys, char* prekeys)
 				left += 1;
 				right += 1;
 
+				scrolX += 0;
+
 			}
 		}
 
@@ -332,6 +334,7 @@ void Player::Update(char* keys, char* prekeys)
 				map[(int)(down / 32)][(int)((right - 1) / 32)] == 0)
 			{
 
+				scrolX += 0;
 				player.position.X -= 1;
 				//剣
 				if (sword.equipment == true && sword.swordshot == false)
@@ -482,12 +485,11 @@ void Player::Update(char* keys, char* prekeys)
 				{
 					cane_.position[2].y += 1;
 				}
-				
+
 				top += 1;
 				down += 1;
 
 			}
-
 		}
 
 
@@ -918,6 +920,15 @@ void Player::Update(char* keys, char* prekeys)
 		}
 	}
 
+
+	if (enemy_.speed_.x >= 0)
+	{
+
+		enemy_.speed_.x = 2;
+
+	}
+
+
 	if (enemy_.flag2 == true)
 	{
 		if (player.position.X <= enemy_.position[1].x + enemy_.radius_[1] &&
@@ -929,9 +940,9 @@ void Player::Update(char* keys, char* prekeys)
 			flag = false;
 			//flag = false;
 			Novice::ScreenPrintf(200, 300, "atari", enemy_.flag2);
-
 		}
 	}
+
 
 	if (enemy_.flag3 == true)
 	{
@@ -1361,7 +1372,7 @@ void Player::Draw()
 	//ブロック描画
 	for (int y = 0; y < 100; y++)
 	{
-		for (int x = 0; x < 100; x++)
+		for (int x = 0; x < 200; x++)
 		{
 
 			if (map[y][x] == BLOCK)//普通のブロック

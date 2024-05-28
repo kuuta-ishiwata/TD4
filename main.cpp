@@ -69,7 +69,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				scene = 1;
 			}
-			
+
 			break;
 		
 		case 1:
@@ -92,7 +92,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
 			{
+
 				scene = 0;
+
 			}
 
 		

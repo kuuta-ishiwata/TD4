@@ -27,6 +27,7 @@ void Enemy::Initialize()
 	this->radius_[4] = 32.0f;
 	this->radius_[5] = 32.0f;
 	
+	speed_ = { 2,2 };
 
 }
 
@@ -35,23 +36,28 @@ void Enemy::Update()
 
 	if (flag == true)
 	{
-		position[0].x -= 1;
+		position[0].x -= speed_.x;
 
 	}
+
+	
+
+
 	if (flag2 == true)
 	{
-		position[1].x -= 1;
+		position[1].x -= speed_.x;
 	}
 	if (flag3 == true)
 	{
-		position[2].x -= 1;
+		position[2].x -= speed_.x;
 	}
 	
-	position[3].x += 0.4f;
+	position[3].x += speed_.x;
 
-	position[4].x += 0.4f;
+	position[4].x += speed_.x;
 
 	
+
 
 	
 }
