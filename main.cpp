@@ -28,7 +28,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Sword* sword;
 	sword = new Sword();
 	sword->Initialize();
-
+	Input* input_ = nullptr;
 
 	cane* cane_;
 	cane_ = new cane();
@@ -45,7 +45,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	maou = Novice::LoadAudio("./maou.wav");
 
-
+	XINPUT_STATE joyState;
 	
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -63,8 +63,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
+		input_->GetJoystickState(0, joyState);
 	
-		XINPUT_STATE joyState;
 
 		switch (scene) {
 		
