@@ -270,6 +270,8 @@ void Player::Update(char* keys, char* prekeys)
 		}
 	}
 
+
+
 	//4頂点の座標
 	float top = player.position.Y - player.radius;
 	float down = player.position.Y + player.radius - 1;
