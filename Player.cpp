@@ -30,9 +30,7 @@ void Player::Update(char* keys, char* prekeys)
 {
 
 	XINPUT_STATE joyState;
-
-	const float jCharacterSpeed = 5.0f;
-
+		
 	sword.Update();
 	cane_.Update();
 	spear_.Update();
