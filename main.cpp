@@ -37,7 +37,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int op = Novice::LoadTexture("./opening.png");
 	int opword = Novice::LoadTexture("./openingword.png");
 	int Gameover = Novice::LoadTexture("./GameOver-.png");
+	int clear = Novice::LoadTexture("./clear.png");
 	int scene = 0;
+
+	int maou;
+
+	maou = Novice::LoadAudio("./maou.wav");
+
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -67,14 +73,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			break;
 		
 		case 1:
-			if (keys[DIK_M] && preKeys[DIK_M] == 0)
+			if (player->flag == false)
 			{
-
-				scene = 0;
-
-				
-				
-
+				scene = 2;
+			}
+			if (!Novice::IsPlayingAudio(maou))
+			{
+				Novice::PlayAudio(maou, true, 0.5f);
 			}
 			player->Update(keys, preKeys);
 
@@ -84,10 +89,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			break;
 
 		case 2:
-			if (player->flag == false)
+
+			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
 			{
-				scene = 2;
+				scene = 0;
 			}
+
 		
 			break;
 		}
@@ -102,6 +109,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 		
+
 		if (scene == 1)
 		{
 			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
@@ -112,13 +120,19 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{
 			Novice::DrawSprite(0, 0, Gameover, 1, 1, 0.0f, WHITE);
 		}
-		else
+		else if(scene == 3)
+		{
+			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
+
+			Novice::DrawSprite(0, 0, clear, 1, 1, 0.0f, WHITE);
+		}
+		else 
 		{
 			
 			Novice::DrawSprite(0, 0, op, 1, 1, 0.0f, WHITE);
+
 			Novice::DrawSprite(0, 0, opword, 1, 1, 0.0f, WHITE);
 
-			
 		}
 	
 		//

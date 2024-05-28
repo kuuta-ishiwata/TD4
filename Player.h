@@ -34,6 +34,8 @@ public:
 
 	void Draw();
 
+	void OnCollision();
+
 
 public:
 

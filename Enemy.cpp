@@ -7,11 +7,11 @@ void Enemy::Initialize()
 {
 
 	position[0].x = 800;
-	position[0].y = 740;
+	position[0].y = 720;
 	position[1].x = 1700;
-	position[1].y = 740;
+	position[1].y = 720;
 	position[2].x = 1250;
-	position[2].y = 740;
+	position[2].y = 720;
 	position[3].x = 1900;
 	position[3].y = 720;
 	position[4].x = 2200;

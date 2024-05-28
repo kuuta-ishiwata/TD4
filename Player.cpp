@@ -609,6 +609,7 @@ void Player::Update(char* keys, char* prekeys)
 		cane_.position[2].y += cane_.speed_.y;
 	}
 
+
 /////////////////////////////////////////////////////////////////////////
 
 	//剣1
@@ -625,6 +626,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (keys[DIK_K] && sword.swordflag == true)
 	{
+
 		sword.equipment = true;
 		sword.equipment2 = false;
 		sword.equipment3 = false;
@@ -639,31 +641,21 @@ void Player::Update(char* keys, char* prekeys)
 		
 	}
 
-	if (enemy_.flag == true)
-	{
+	
 		if (sword.swordshot == true)
 		{
-			sword.swordflag == false;
+			sword.swordflag = false;
 			sword.position[0].x += 5;
 		}
-	}
-	if (enemy_.flag2 == true)
-	{
-		if (sword.swordshot == true)
-		{
-			sword.swordflag == false;
-			sword.position[0].x += 5;
-		}
-	}
 
-	if (enemy_.flag3 == true)
-	{
-		if (sword.swordshot == true)
+		if (sword.position[0].x + 100 == player.position.X)
 		{
-			sword.swordflag == false;
-			sword.position[0].x += 5;
-		}
-	}
+
+			sword.equipment = false;
+			sword.swordshot = false;
+
+	    }
+	
 	
 
 	//剣２
@@ -679,7 +671,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 	
-	if (keys[DIK_K] && sword.swordflag == true)
+	if (keys[DIK_K] && sword.swordflag2 == true)
 	{
 
 		sword.equipment = false;
@@ -696,38 +688,22 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (enemy_.flag == true)
-	{
+
 		if (sword.swordshot2 == true)
 		{
 
-			sword.swordflag2 == false;
+			sword.swordflag2 = false;
 			sword.position[1].x += 5;
 
 		}
-	}
-	if (enemy_.flag2 == true)
-	{
-		if (sword.swordshot2 == true)
+
+		if (sword.position[1].x + 100 == player.position.X)
 		{
 
-			sword.swordflag2 == false;
-			sword.position[1].x += 5;
+			sword.equipment2 = false;
+			sword.swordshot2 = false;
 
 		}
-	}
-
-	if (enemy_.flag3 == true)
-	{
-		if (sword.swordshot2 == true)
-		{
-
-			sword.swordflag2 == false;
-			sword.position[1].x += 5;
-
-		}
-	}
-
 
 
 
@@ -758,32 +734,20 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (enemy_.flag == true)
-	{
+	
 		if (sword.swordshot3 == true)
 		{
-			sword.swordflag3 == false;
+			sword.swordflag3 = false;
 			sword.position[2].x += 5;
 		}
-	}
+		if (sword.position[2].x + 100 == player.position.X)
+		{
 
-	if (enemy_.flag2 == true)
-	{
-		if (sword.swordshot3 == true)
-		{
-			sword.swordflag3 == false;
-			sword.position[2].x += 5;
-		}
-	}
+			sword.equipment3 = false;
+			sword.swordshot3 = false;
 
-	if (enemy_.flag3 == true)
-	{
-		if (sword.swordshot3 == true)
-		{
-			sword.swordflag3 == false;
-			sword.position[2].x += 5;
 		}
-	}
+
 
 
 	//////////////////////////
@@ -799,7 +763,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (keys[DIK_7] && cane_.caneflag == true)
+	if (keys[DIK_J] && cane_.caneflag == true)
 	{
 
 		cane_.equipment = true;
@@ -811,25 +775,24 @@ void Player::Update(char* keys, char* prekeys)
 	
 		cane_.position[0].x = player.position.X;
 		cane_.position[0].y = player.position.Y;
-
-
-	}
-
-	if (keys[DIK_Y] && cane_.caneflag == true && cane_.equipment == true)
-	{
-
 		cane_.canedshot = true;
 
 	}
 
 	if (cane_.canedshot == true)
 	{
-		cane_.caneflag = false;
-		cane_.speed_.x = 0;
-		cane_.speed_.y = 0;
+	
 		cane_.position[0].x += 5;
+	}
+	if (cane_.position[0].x + 100 == player.position.X)
+	{
+
+		cane_.equipment = false;
+		cane_.canedshot = false;
 
 	}
+
+	
 
 
 	//杖二本目
@@ -844,7 +807,7 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
-	if (keys[DIK_6] && cane_.caneflag2 == true)
+	if (keys[DIK_J] && cane_.caneflag2 == true)
 	{
 
 		cane_.equipment = false;
@@ -853,24 +816,23 @@ void Player::Update(char* keys, char* prekeys)
 		sword.equipment = false;
 		sword.equipment2 = false;
 		sword.equipment3 = false;
+
 		cane_.position[1].x = player.position.X;
 		cane_.position[1].y = player.position.Y;
-
-
-	}
-
-	if (keys[DIK_T]&& cane_.caneflag2 == true &&cane_.equipment2 == true)
-	{
-
 		cane_.caneshot2 = true;
+
 	}
 
 	if (cane_.caneshot2 == true)
 	{
 		
-		cane_.speed_.x = 0;
-		cane_.speed_.y = 0;
 		cane_.position[1].x += 5;
+	}
+	if (cane_.position[1].x + 100 == player.position.X)
+	{
+
+		cane_.equipment2 = false;
+		cane_.caneshot2 = false;
 
 	}
 
@@ -883,6 +845,34 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		cane_.caneflag3 = true;
+
+	}
+	if (keys[DIK_J] && cane_.caneflag3 == true)
+	{
+
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = true;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
+
+		cane_.position[2].x = player.position.X;
+		cane_.position[2].y = player.position.Y;
+		cane_.caneshot3 = true;
+
+	}
+
+	if (cane_.caneshot3 == true)
+	{
+		
+		cane_.position[2].x += 5;
+	}
+	if (cane_.position[2].x + 100 == player.position.X)
+	{
+
+		cane_.equipment3 = false;
+		cane_.caneshot3 = false;
 
 	}
 	
@@ -1005,7 +995,8 @@ void Player::Update(char* keys, char* prekeys)
 		}
 	}
 
-	///////剣
+	///////あたり判定
+
 	if (sword.equipment == true && enemy_.flag == true)
 	{
 		if (sword.position[0].x <= enemy_.position[0].x + enemy_.radius_[0] &&
@@ -1127,7 +1118,6 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[0].y <= cane_.position[0].y + cane_.radius_[0])
 		{
 			enemy_.flag = false;
-			cane_.caneflag = false;
 			cane_.equipment = false;
 
 		}
@@ -1141,7 +1131,6 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[1].y <= cane_.position[0].y + cane_.radius_[0])
 		{
 			enemy_.flag2 = false;
-			cane_.caneflag = false;
 			cane_.equipment = false;
 		}
 	}
@@ -1153,7 +1142,6 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[2].y <= cane_.position[0].y + cane_.radius_[0])
 		{
 			enemy_.flag3 = false;
-			cane_.caneflag = false;
 			cane_.equipment = false;
 		}
 	}
@@ -1166,7 +1154,6 @@ void Player::Update(char* keys, char* prekeys)
 			enemy_.position[0].y <= cane_.position[1].y + cane_.radius_[1])
 		{
 			enemy_.flag = false;
-			cane_.caneflag2 = false;
 			cane_.equipment2 = false;
 		}
 	}
@@ -1437,4 +1424,9 @@ void Player::Draw()
 		}
 	}
 
+}
+
+void Player::OnCollision()
+{
+     flag = false;
 }
