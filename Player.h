@@ -5,6 +5,7 @@
 #include "cane.h"
 #include "Spear.h"
 #include "Enemy.h"
+#include "Input.h"
 
 
 enum BLOCKinfo

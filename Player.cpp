@@ -29,6 +29,8 @@ void Player::Initialize()
 void Player::Update(char* keys, char* prekeys)
 {
 
+	XINPUT_STATE joyState;
+
 	sword.Update();
 	cane_.Update();
 	spear_.Update();
