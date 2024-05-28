@@ -14,6 +14,18 @@ void cane::Initialize()
 	this->radius_[1] = 32.0f;
 	this->radius_[2] = 32.0f;
 	this->isShot_ = false;
+	caneflag = false;
+	caneflag2 = false;
+	caneflag3 = false;
+	equipment = false;
+	canedshot = false;
+
+	equipment2 = false;
+	caneshot2 = false;
+
+
+	equipment3 = false;
+	caneshot3 = false;
 
 }
 

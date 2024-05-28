@@ -29,6 +29,8 @@ void Enemy::Initialize()
 	
 	speed_ = { 2,2 };
 
+
+
 }
 
 void Enemy::Update()

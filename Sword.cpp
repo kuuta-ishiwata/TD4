@@ -15,6 +15,16 @@ void Sword::Initialize()
 	this->radius_[2] = 32.0f;
 	this->isShot_ = false;
 
+	swordflag = false;
+	swordflag2 = false;
+	swordflag3 = false;
+
+	equipment = false;
+	swordshot = false;
+	equipment2 = false;
+	swordshot2 = false;
+	equipment3 = false;
+	swordshot3 = false;
 
 }
 
@@ -29,6 +39,7 @@ void Sword::Update()
 
 void Sword::Oncollision()
 {
+
 	swordflag = true;
 
 }

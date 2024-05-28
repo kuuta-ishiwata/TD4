@@ -313,7 +313,6 @@ void Player::Update(char* keys, char* prekeys)
 		// ジャンプ
 		if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A)
 		{
-
 			if (jampFlag == false)
 			{
 
@@ -790,12 +789,12 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		sword.equipment = true;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 		
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 		
 		sword.position[0].x = player.position.X-60;
 		sword.position[0].y = player.position.Y-10;
@@ -805,12 +804,12 @@ void Player::Update(char* keys, char* prekeys)
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag == true)
 	{
 		sword.equipment = true;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 
 		sword.position[0].x = player.position.X - 60;
 		sword.position[0].y = player.position.Y - 10;
@@ -850,13 +849,13 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_K] && sword.swordflag2 == true)
 	{
 
-		//sword.equipment = false;
+		sword.equipment = false;
 		sword.equipment2 = true;
-		//sword.equipment3 = false;
+		sword.equipment3 = false;
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 
 		sword.position[1].x = player.position.X - 60;
 		sword.position[1].y = player.position.Y - 10;
@@ -866,13 +865,13 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag2 == true)
 	{
-		//sword.equipment = false;
+		sword.equipment = false;
 		sword.equipment2 = true;
-		//sword.equipment3 = false;
+		sword.equipment3 = false;
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 
 		sword.position[1].x = player.position.X - 60;
 		sword.position[1].y = player.position.Y - 10;
@@ -911,13 +910,13 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (keys[DIK_K] && sword.swordflag3 == true)
 	{
-		//sword.equipment = false;
-		//sword.equipment2 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
 		sword.equipment3 = true;
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 
 		sword.position[2].x = player.position.X - 60;
 		sword.position[2].y = player.position.Y - 10;
@@ -926,13 +925,13 @@ void Player::Update(char* keys, char* prekeys)
 	}
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag3 == true)
 	{
-		//sword.equipment = false;
-		//sword.equipment2 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
 		sword.equipment3 = true;
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
 
 		sword.position[2].x = player.position.X - 60;
 		sword.position[2].y = player.position.Y - 10;
@@ -972,11 +971,11 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		cane_.equipment = true;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
-		//sword.equipment = false;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 	
 		cane_.position[0].x = player.position.X;
 		cane_.position[0].y = player.position.Y;
@@ -986,11 +985,11 @@ void Player::Update(char* keys, char* prekeys)
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag == true)
 	{
 		cane_.equipment = true;
-		//cane_.equipment2 = false;
-		//cane_.equipment3 = false;
-		//sword.equipment = false;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		cane_.equipment2 = false;
+		cane_.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 
 		cane_.position[0].x = player.position.X;
 		cane_.position[0].y = player.position.Y;
@@ -1041,12 +1040,12 @@ void Player::Update(char* keys, char* prekeys)
 	}
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag2 == true)
 	{
-		//cane_.equipment = false;
+		cane_.equipment = false;
 		cane_.equipment2 = true;
-		//cane_.equipment3 = false;
-		//sword.equipment = false;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		cane_.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 
 		cane_.position[1].x = player.position.X;
 		cane_.position[1].y = player.position.Y;
@@ -1080,12 +1079,12 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_J] && cane_.caneflag3 == true)
 	{
 
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
 		cane_.equipment3 = true;
-		//sword.equipment = false;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 
 		cane_.position[2].x = player.position.X;
 		cane_.position[2].y = player.position.Y;
@@ -1094,12 +1093,12 @@ void Player::Update(char* keys, char* prekeys)
 	}
 	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag3 == true)
 	{
-		//cane_.equipment = false;
-		//cane_.equipment2 = false;
+		cane_.equipment = false;
+		cane_.equipment2 = false;
 		cane_.equipment3 = true;
-		//sword.equipment = false;
-		//sword.equipment2 = false;
-		//sword.equipment3 = false;
+		sword.equipment = false;
+		sword.equipment2 = false;
+		sword.equipment3 = false;
 
 		cane_.position[2].x = player.position.X;
 		cane_.position[2].y = player.position.Y;
