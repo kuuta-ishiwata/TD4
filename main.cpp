@@ -69,6 +69,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				scene = 1;
 			}
+
 			else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A) {
 				scene = 1;
 			}
