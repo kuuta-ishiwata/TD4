@@ -38,7 +38,7 @@ void Player::Update(char* keys, char* prekeys)
 	spear_.Update();
 	enemy_.Update();
 
-	if (!Input::GetInstance()->GetJoystickState(0, joyState)) {
+	
 		//右に動く
 		if (keys[DIK_A])
 		{
@@ -239,7 +239,7 @@ void Player::Update(char* keys, char* prekeys)
 				}
 			}
 		}
-	}
+	
 
 	if (Input::GetInstance()->GetJoystickState(0, joyState)) {
 		if ((float)joyState.Gamepad.sThumbLX < 0) {

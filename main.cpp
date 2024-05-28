@@ -6,6 +6,7 @@
 #include "Sword.h"
 #include "cane.h"
 #include "Map.h"
+#include "Input.h"
 
 const char kWindowTitle[] = "LE2C_02_イシワタクウタ";
 
@@ -18,6 +19,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
 	char preKeys[256] = {0};
+
+	Input* input = nullptr;
+	XINPUT_STATE joyState;
+
+	input = Input::GetInstance();
 
 	Player* player;
 	player = new Player();
@@ -54,13 +60,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-	
+		input->GetJoystickState(0, joyState);
 	
 		switch (scene) {
 		
 		case 0:
 			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
 			{
+				scene = 1;
+			}
+			else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A) {
 				scene = 1;
 			}
 			
