@@ -1,7 +1,6 @@
 ﻿#include "Player.h"
 #define _USE_MATH_DEFINES
 #include <memory>
-
 Player::~Player()
 {
 	
