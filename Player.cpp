@@ -790,19 +790,33 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		sword.equipment = true;
-		sword.equipment2 = false;
-		sword.equipment3 = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 		
-		cane_.equipment = false;
-		cane_.equipment2 = false;
-		cane_.equipment3 = false;
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
 		
 		sword.position[0].x = player.position.X-60;
 		sword.position[0].y = player.position.Y-10;
 		sword.swordshot = true;
 		
 	}
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag == true)
+	{
+		sword.equipment = true;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
+
+		sword.position[0].x = player.position.X - 60;
+		sword.position[0].y = player.position.Y - 10;
+		sword.swordshot = true;
+
+	}
 	
 		if (sword.swordshot == true)
 		{
@@ -836,13 +850,13 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_K] && sword.swordflag2 == true)
 	{
 
-		sword.equipment = false;
+		//sword.equipment = false;
 		sword.equipment2 = true;
-		sword.equipment3 = false;
+		//sword.equipment3 = false;
 
-		cane_.equipment = false;
-		cane_.equipment2 = false;
-		cane_.equipment3 = false;
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
 
 		sword.position[1].x = player.position.X - 60;
 		sword.position[1].y = player.position.Y - 10;
@@ -850,6 +864,21 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag2 == true)
+	{
+		//sword.equipment = false;
+		sword.equipment2 = true;
+		//sword.equipment3 = false;
+
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
+
+		sword.position[1].x = player.position.X - 60;
+		sword.position[1].y = player.position.Y - 10;
+		sword.swordshot2 = true;
+
+	}
 
 		if (sword.swordshot2 == true)
 		{
@@ -882,20 +911,34 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (keys[DIK_K] && sword.swordflag3 == true)
 	{
-		sword.equipment = false;
-		sword.equipment2 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
 		sword.equipment3 = true;
 
-		cane_.equipment = false;
-		cane_.equipment2 = false;
-		cane_.equipment3 = false;
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
 
 		sword.position[2].x = player.position.X - 60;
 		sword.position[2].y = player.position.Y - 10;
 		sword.swordshot3 = true;
 
 	}
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_X && sword.swordflag3 == true)
+	{
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		sword.equipment3 = true;
 
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
+
+		sword.position[2].x = player.position.X - 60;
+		sword.position[2].y = player.position.Y - 10;
+		sword.swordshot3 = true;
+
+	}
 	
 		if (sword.swordshot3 == true)
 		{
@@ -929,18 +972,30 @@ void Player::Update(char* keys, char* prekeys)
 	{
 
 		cane_.equipment = true;
-		cane_.equipment2 = false;
-		cane_.equipment3 = false;
-		sword.equipment = false;
-		sword.equipment2 = false;
-		sword.equipment3 = false;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 	
 		cane_.position[0].x = player.position.X;
 		cane_.position[0].y = player.position.Y;
 		cane_.canedshot = true;
 
 	}
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag == true)
+	{
+		cane_.equipment = true;
+		//cane_.equipment2 = false;
+		//cane_.equipment3 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
+		cane_.position[0].x = player.position.X;
+		cane_.position[0].y = player.position.Y;
+		cane_.canedshot = true;
+	}
 	if (cane_.canedshot == true)
 	{
 	
@@ -972,19 +1027,32 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_J] && cane_.caneflag2 == true)
 	{
 
-		cane_.equipment = false;
+		//cane_.equipment = false;
 		cane_.equipment2 = true;
-		cane_.equipment3 = false;
-		sword.equipment = false;
-		sword.equipment2 = false;
-		sword.equipment3 = false;
+		//cane_.equipment3 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
 		cane_.position[1].x = player.position.X;
 		cane_.position[1].y = player.position.Y;
 		cane_.caneshot2 = true;
 
 	}
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag2 == true)
+	{
+		//cane_.equipment = false;
+		cane_.equipment2 = true;
+		//cane_.equipment3 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
+		cane_.position[1].x = player.position.X;
+		cane_.position[1].y = player.position.Y;
+		cane_.caneshot2 = true;
+
+	}
 	if (cane_.caneshot2 == true)
 	{
 		
@@ -1012,23 +1080,38 @@ void Player::Update(char* keys, char* prekeys)
 	if (keys[DIK_J] && cane_.caneflag3 == true)
 	{
 
-		cane_.equipment = false;
-		cane_.equipment2 = false;
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
 		cane_.equipment3 = true;
-		sword.equipment = false;
-		sword.equipment2 = false;
-		sword.equipment3 = false;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
 		cane_.position[2].x = player.position.X;
 		cane_.position[2].y = player.position.Y;
 		cane_.caneshot3 = true;
 
 	}
+	if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_Y && cane_.caneflag3 == true)
+	{
+		//cane_.equipment = false;
+		//cane_.equipment2 = false;
+		cane_.equipment3 = true;
+		//sword.equipment = false;
+		//sword.equipment2 = false;
+		//sword.equipment3 = false;
 
+		cane_.position[2].x = player.position.X;
+		cane_.position[2].y = player.position.Y;
+		cane_.caneshot3 = true;
+
+
+	}
 	if (cane_.caneshot3 == true)
 	{
-		
+
 		cane_.position[2].x += 5;
+
 	}
 	if (cane_.position[2].x + 100 == player.position.X)
 	{
@@ -1599,5 +1682,22 @@ void Player::Draw()
 
 void Player::OnCollision()
 {
-     flag = false;
+     flag = true;
+	
+
+	 player =
+	 {
+		 {64,500},
+		 {0,0},
+		 16
+	 };
+	 
+	 scrolX = 0;
+
+	 enemy_.Initialize();
+
+	 sword.Initialize();
+
+	 cane_.Initialize();
+
 }
