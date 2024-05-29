@@ -27,9 +27,11 @@ void Enemy::Initialize()
 	this->radius_[4] = 32.0f;
 	this->radius_[5] = 32.0f;
 	
-	speed_ = { 2,2 };
-
-
+	speed_ = { 0.2,0.2 };
+	suraimuspeed = { 2,2 };
+	flag = true;
+	flag2 = true;
+	flag3 = true;
 
 }
 
@@ -42,9 +44,6 @@ void Enemy::Update()
 
 	}
 
-	
-
-
 	if (flag2 == true)
 	{
 		position[1].x -= speed_.x;
@@ -54,11 +53,24 @@ void Enemy::Update()
 		position[2].x -= speed_.x;
 	}
 	
-	position[3].x += speed_.x;
+	if (suraimuflag == true)
+	{
+		position[3].x += suraimuspeed.x;
+	}
 
-	position[4].x += speed_.x;
+	if (suraimuflag2 == true)
+	{
 
-	
+		position[4].x += suraimuspeed.x;
+
+	}
+	if (suraimuflag3 == true)
+	{
+
+		position[5].x += suraimuspeed.x;
+
+	}
+
 
 
 	

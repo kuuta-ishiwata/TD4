@@ -8,7 +8,7 @@
 #include "Map.h"
 #include  "Input.h"
 
-const char kWindowTitle[] = "LE2C_02_イシワタクウタ";
+const char kWindowTitle[] = "ウェポンソルジャー";
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -37,6 +37,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	cane* cane_;
 	cane_ = new cane();
 	cane_->Initialize();
+
+	Enemy* enemy_;
+	enemy_ = new Enemy();
+	enemy_->Initialize();
 
 	int view = Novice::LoadTexture("./sky.png");
 	int op = Novice::LoadTexture("./opening.png");
@@ -89,14 +93,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				scene = 2;
 			}
+			if (enemy_->flag == false)
+			{
+				scene = 3;
+			}
 			if (!Novice::IsPlayingAudio(maou))
 			{
 				Novice::PlayAudio(maou, true, 0.5f);
 			}
+			
 			player->Update(keys, preKeys);
 
-			sword->Update();
-			cane_->Update();
+		
 		
 			break;
 
@@ -107,9 +115,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 				scene = 0;
 				player->OnCollision();
+
 			}
 
-		
 			break;
 		}
 

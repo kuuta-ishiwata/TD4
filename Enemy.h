@@ -13,6 +13,7 @@ public:
 
 	Vector2 position[7];
 	Vector2 speed_;
+	Vector2 suraimuspeed;
 	void Initialize();
 
 	void Update();
@@ -39,9 +40,13 @@ public:
 	bool flag = true;
 	bool flag2 = true;
 	bool flag3 = true;
+	bool flag4 = true;
+	bool flag5 = true;
 	bool suraimuflag = true;
 	bool suraimuflag2 = true;
 	bool suraimuflag3 = true;
+
+
 private:
 	
 
