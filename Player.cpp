@@ -17,7 +17,7 @@ void Player::Initialize()
 		16
 	};
 
-	goalposition = {4250,50 };
+	goalposition = {4300,50 };
 	goalradius = 170;
 	sword.Initialize();
 	cane_.Initialize();
@@ -1169,11 +1169,7 @@ void Player::Update(char* keys, char* prekeys)
 			player.position.Y <= enemy_.position[0].y + enemy_.radius_[0] &&
 			enemy_.position[0].y <= player.position.Y + player.radius)
 		{
-			//enemy_.ChecAllCollision();
-
 			flag = false;
-			//flag = false;
-			
 		}
 	}
 
@@ -1259,7 +1255,18 @@ void Player::Update(char* keys, char* prekeys)
 
 		}
 	}
+	if (enemy_.suraimuflag4 == true)
+	{
+		if (player.position.X <= enemy_.position[6].x + enemy_.radius_[5] &&
+			enemy_.position[6].x <= player.position.X + player.radius &&
+			player.position.Y <= enemy_.position[6].y + enemy_.radius_[5] &&
+			enemy_.position[6].y <= player.position.Y + player.radius)
+		{
 
+			flag = false;
+
+		}
+	}
 	///////あたり判定
 
 	if (sword.equipment == true && enemy_.flag == true)
@@ -1419,7 +1426,18 @@ void Player::Update(char* keys, char* prekeys)
 		}
 
 	}
+	if (cane_.caneflag == true && enemy_.suraimuflag4 == true)
+	{
+		if (cane_.position[0].x <= enemy_.position[6].x + enemy_.radius_[6] &&
+			enemy_.position[6].x <= cane_.position[0].x + cane_.radius_[0] &&
+			cane_.position[6].y <= enemy_.position[6].y + enemy_.radius_[5] &&
+			enemy_.position[5].y <= cane_.position[0].y + cane_.radius_[0])
+		{
+			enemy_.suraimuflag4 = false;
+			cane_.equipment = false;
+		}
 
+	}
 	//杖二個目の判定
 	if (cane_.caneflag2 == true && enemy_.suraimuflag == true)
 	{
@@ -1462,7 +1480,18 @@ void Player::Update(char* keys, char* prekeys)
 		}
 
 	}
+	if (cane_.caneflag2 == true && enemy_.suraimuflag4 == true)
+	{
+		if (cane_.position[1].x <= enemy_.position[6].x + enemy_.radius_[6] &&
+			enemy_.position[6].x <= cane_.position[1].x + cane_.radius_[1] &&
+			cane_.position[1].y <= enemy_.position[6].y + enemy_.radius_[6] &&
+			enemy_.position[6].y <= cane_.position[1].y + cane_.radius_[1])
+		{
+			enemy_.suraimuflag4 = false;
+			cane_.equipment2 = false;
+		}
 
+	}
 	/////杖3コメの判定
 	if (cane_.caneflag3 == true && enemy_.suraimuflag == true)
 	{
@@ -1493,9 +1522,9 @@ void Player::Update(char* keys, char* prekeys)
 
 	if (cane_.caneflag3 == true && enemy_.suraimuflag3 == true)
 	{
-		if (cane_.position[2].x <= enemy_.position[3].x + enemy_.radius_[5] &&
+		if (cane_.position[2].x <= enemy_.position[5].x + enemy_.radius_[5] &&
 			enemy_.position[5].x <= cane_.position[2].x + cane_.radius_[2] &&
-			cane_.position[2].y <= enemy_.position[3].y + enemy_.radius_[5] &&
+			cane_.position[2].y <= enemy_.position[5].y + enemy_.radius_[5] &&
 			enemy_.position[5].y <= cane_.position[2].y + cane_.radius_[2])
 		{
 			enemy_.suraimuflag3 = false;
@@ -1505,6 +1534,19 @@ void Player::Update(char* keys, char* prekeys)
 
 	}
 
+	if (cane_.caneflag3 == true && enemy_.suraimuflag4 == true)
+	{
+		if (cane_.position[2].x <= enemy_.position[6].x + enemy_.radius_[6] &&
+			enemy_.position[6].x <= cane_.position[2].x + cane_.radius_[2] &&
+			cane_.position[2].y <= enemy_.position[6].y + enemy_.radius_[6] &&
+			enemy_.position[6].y <= cane_.position[2].y + cane_.radius_[2])
+		{
+			enemy_.suraimuflag4 = false;
+			cane_.equipment3 = false;
+
+		}
+
+	}
 
 
 	////goalあたり判定
@@ -1525,6 +1567,28 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		enemy_.speed_.x = enemy_.speed_.x * -1;
 	}
+	if (enemy_.position[1].x >= 50)
+	{
+		enemy_.speed_.x = enemy_.speed_.x * -1;
+	}
+	if (enemy_.position[1].x <= 1250)
+	{
+		enemy_.speed_.x = enemy_.speed_.x * -1;
+	}
+	if (enemy_.position[2].x >= 50)
+	{
+		enemy_.speed_.x = enemy_.speed_.x * -1;
+	}
+
+	if (enemy_.position[2].x <= 1250)
+	{
+
+		enemy_.speed_.x = enemy_.speed_.x * -1;
+
+	}
+
+
+
 
 	if (enemy_.position[3].x >= 1280)
 	{
@@ -1535,6 +1599,7 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		enemy_.suraimuspeed.x = enemy_.suraimuspeed.x * -1;
 	}
+	
 
 	
 	if (player.position.Y >= 800)

@@ -12,6 +12,8 @@ void Enemy::Initialize()
 	position[1].y = 710;
 	position[2].x = 1250;
 	position[2].y = 710;
+	position[3].x = 4100;
+	position[3].y = 465;
 	//スライム
 	position[3].x = 1900;
 	position[3].y = 720;
@@ -19,9 +21,11 @@ void Enemy::Initialize()
 	position[4].y = 720;
 	position[5].x = 2400;
 	position[5].y = 720;
-	position[6].x = 3500;
-	position[6].y = 720;
-
+	position[6].x = 4000;
+	position[6].y = 480;
+	////
+	position[7].x = 4200;
+	position[7].y = 410;
 
 
 	this->radius_[0] = 64.0f;
@@ -31,7 +35,7 @@ void Enemy::Initialize()
 	this->radius_[4] = 32.0f;
 	this->radius_[5] = 32.0f;
 	this->radius_[6] = 32.0f;
-
+	this->radius_[7] = 32.0f;
 	speed_ = { 0.2,0.2 };
 	suraimuspeed = { 2,2 };
 	flag = true;
@@ -98,6 +102,11 @@ void Enemy::Draw(int X)
 	{
 		Novice::DrawSprite(position[2].x - X, position[2].y, enemy, 1, 1, 0.0f, WHITE);
 	}
+	if (flag6 == true)
+	{
+		Novice::DrawSprite(position[7].x - X, position[7].y, enemy, 1, 1, 0.0f, WHITE);
+	}
+
 	if (suraimuflag == true)
 	{
 		Novice::DrawSprite(position[3].x - X, position[3].y, suraimu, 1, 1, 0.0f, WHITE);
@@ -110,7 +119,10 @@ void Enemy::Draw(int X)
 	{
 		Novice::DrawSprite(position[5].x - X, position[5].y, suraimu, 1, 1, 0.0f, WHITE);
 	}
-
+	if (suraimuflag4 == true)
+	{
+		Novice::DrawSprite(position[6].x - X, position[6].y, suraimu, 1, 1, 0.0f, WHITE);
+	}
 }
 
 

@@ -27,6 +27,8 @@ void cane::Initialize()
 	equipment3 = false;
 	caneshot3 = false;
 
+
+
 }
 
 void cane::Update()

@@ -114,6 +114,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				player->OnCollision();
 
 			}
+		case 3:
+
+			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
+			{
+
+				scene = 0;
+				player->OnCollision();
+
+			}
 
 			
 			break;
@@ -142,7 +151,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 		else if(scene == 3)
 		{
-			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(0, 0, op, 1, 1, 0.0f, WHITE);
 
 			Novice::DrawSprite(0, 0, clear, 1, 1, 0.0f, WHITE);
 		}

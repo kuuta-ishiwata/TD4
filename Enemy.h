@@ -42,6 +42,7 @@ public:
 	bool flag3 = true;
 	bool flag4 = true;
 	bool flag5 = true;
+	bool flag6 = true;
 	bool suraimuflag = true;
 	bool suraimuflag2 = true;
 	bool suraimuflag3 = true;
