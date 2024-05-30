@@ -362,7 +362,7 @@ void Player::Update(char* keys, char* prekeys)
 	player.velocity.Y += gravity;
 
 	
-
+	
 
 	if (sword.equipment == true&& sword.swordshot == false)
 	{
@@ -1214,6 +1214,26 @@ void Player::Update(char* keys, char* prekeys)
 
 		}
 	}
+
+
+	if (enemy_.flag6 == true)
+	{
+		if (player.position.X <= enemy_.position[7].x + enemy_.radius_[7] &&
+			enemy_.position[7].x <= player.position.X + player.radius &&
+			player.position.Y <= enemy_.position[7].y + enemy_.radius_[7] &&
+			enemy_.position[7].y <= player.position.Y + player.radius)
+
+		{
+
+			//enemy_.ChecAllCollision();
+			flag = false;
+			//flag = false;
+
+
+
+		}
+
+	}
 	//	スライム
 
 	if (enemy_.suraimuflag == true)
@@ -1308,6 +1328,19 @@ void Player::Update(char* keys, char* prekeys)
 
 		}
 	}
+	if (sword.equipment == true && enemy_.flag6 == true)
+	{
+		if (sword.position[0].x <= enemy_.position[7].x + enemy_.radius_[2] &&
+			enemy_.position[7].x <= sword.position[0].x + sword.radius_[0] &&
+			sword.position[0].y <= enemy_.position[7].y + enemy_.radius_[2] &&
+			enemy_.position[7].y <= sword.position[0].y + sword.radius_[0])
+		{
+			enemy_.flag6 = false;
+			sword.equipment = false;
+
+		}
+	}
+
 
 	if (sword.equipment2 == true && enemy_.flag == true)
 	{
@@ -1348,6 +1381,19 @@ void Player::Update(char* keys, char* prekeys)
 		}
 	}
 
+	if (sword.equipment2 == true && enemy_.flag6 == true)
+	{
+		if (sword.position[1].x <= enemy_.position[7].x + enemy_.radius_[7] &&
+			enemy_.position[7].x <= sword.position[1].x + sword.radius_[1] &&
+			sword.position[1].y <= enemy_.position[7].y + enemy_.radius_[7] &&
+			enemy_.position[7].y <= sword.position[1].y + sword.radius_[1])
+		{
+			enemy_.flag6 = false;
+			sword.equipment2 == false;
+		}
+	}
+
+
 	if (sword.equipment3 == true && enemy_.flag == true)
 	{
 		if (sword.position[2].x <= enemy_.position[0].x + enemy_.radius_[0] &&
@@ -1383,7 +1429,18 @@ void Player::Update(char* keys, char* prekeys)
 			sword.equipment3 = false;
 		}
 	}
+	if (sword.equipment3 == true && enemy_.flag6 == true)
+	{
 
+		if (sword.position[7].x <= enemy_.position[7].x + enemy_.radius_[2] &&
+			enemy_.position[2].x <= sword.position[2].x + sword.radius_[2] &&
+			sword.position[7].y <= enemy_.position[7].y + enemy_.radius_[2] &&
+			enemy_.position[2].y <= sword.position[2].y + sword.radius_[2])
+		{
+			enemy_.flag6 = false;
+			sword.equipment3 = false;
+		}
+	}
 	/////スライム
 
 	//杖1個目の判定
@@ -1599,8 +1656,6 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		enemy_.suraimuspeed.x = enemy_.suraimuspeed.x * -1;
 	}
-	
-
 	
 	if (player.position.Y >= 800)
 	{
