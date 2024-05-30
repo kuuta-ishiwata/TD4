@@ -8,7 +8,7 @@
 #include "Map.h"
 #include  "Input.h"
 
-const char kWindowTitle[] = "ウェポンソルジャー";
+const char kWindowTitle[] = "3144_ウェポンソルジャー";
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
