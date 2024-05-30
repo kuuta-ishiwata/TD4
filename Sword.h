@@ -55,6 +55,7 @@ public:
 	//1
 	bool equipment = false;
 	bool swordshot = false;
+
 	//2
 	bool equipment2 = false;
 	bool swordshot2 = false;
@@ -62,6 +63,8 @@ public:
 	//3
 	bool equipment3= false;
 	bool swordshot3 = false;
+
+	int swordcount = 0;
 
 	int ScrolX = 0;
 

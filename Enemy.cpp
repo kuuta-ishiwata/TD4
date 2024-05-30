@@ -7,11 +7,11 @@ void Enemy::Initialize()
 {
 
 	position[0].x = 800;
-	position[0].y = 720;
+	position[0].y = 710;
 	position[1].x = 1700;
-	position[1].y = 720;
+	position[1].y = 710;
 	position[2].x = 1250;
-	position[2].y = 720;
+	position[2].y = 710;
 	position[3].x = 1900;
 	position[3].y = 720;
 	position[4].x = 2200;
@@ -20,9 +20,9 @@ void Enemy::Initialize()
 	position[5].y = 720;
 
 
-	this->radius_[0] = 32.0f;
-	this->radius_[1] = 32.0f;
-	this->radius_[2] = 32.0f;
+	this->radius_[0] = 64.0f;
+	this->radius_[1] = 64.0f;
+	this->radius_[2] = 64.0f;
 	this->radius_[3] = 32.0f;
 	this->radius_[4] = 32.0f;
 	this->radius_[5] = 32.0f;

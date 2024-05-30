@@ -93,7 +93,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			{
 				scene = 2;
 			}
-			if (enemy_->flag == false)
+			else if(player->goalflag == false)
 			{
 				scene = 3;
 			}
@@ -118,6 +118,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 			}
 
+			
 			break;
 		}
 
