@@ -117,8 +117,9 @@ void Player::Update(char* keys, char* prekeys)
 			scrolX += player.velocity.X;
 		}
 
-		
+
 	}
+
 
 	//左に動く
 	if (keys[DIK_D])

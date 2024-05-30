@@ -36,7 +36,7 @@ public:
 	void SetSpeed(Vector2 speed) { this->speed_ = speed; }
 	void Setradius(float radius) { this->radius_[0] = radius; }
 	
-	float radius_[7];
+	float radius_[10];
 	bool flag = true;
 	bool flag2 = true;
 	bool flag3 = true;
@@ -45,7 +45,7 @@ public:
 	bool suraimuflag = true;
 	bool suraimuflag2 = true;
 	bool suraimuflag3 = true;
-
+	bool suraimuflag4 = true;
 	
 
 private:

@@ -19,7 +19,8 @@ void Enemy::Initialize()
 	position[4].y = 720;
 	position[5].x = 2400;
 	position[5].y = 720;
-
+	position[6].x = 3500;
+	position[6].y = 720;
 
 
 
@@ -29,7 +30,8 @@ void Enemy::Initialize()
 	this->radius_[3] = 32.0f;
 	this->radius_[4] = 32.0f;
 	this->radius_[5] = 32.0f;
-	
+	this->radius_[6] = 32.0f;
+
 	speed_ = { 0.2,0.2 };
 	suraimuspeed = { 2,2 };
 	flag = true;
