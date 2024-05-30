@@ -47,6 +47,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	int opword = Novice::LoadTexture("./openingword.png");
 	int Gameover = Novice::LoadTexture("./GameOver-.png");
 	int clear = Novice::LoadTexture("./clear.png");
+	int setumei = Novice::LoadTexture("./setumei.png");
+
 	int scene = 0;
 
 	int maou;
@@ -89,31 +91,34 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			break;
 		
 		case 1:
+			
+				if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
+				{
+					scene = 2;
+				}
+				else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_B)
+				{
+					scene = 2;
+				}
+
+			break;
+
+		case 2:
 			if (player->flag == false)
 			{
-				scene = 2;
-			}
-			else if(player->goalflag == false)
-			{
 				scene = 3;
+			}
+			else if (player->goalflag == false)
+			{
+				scene = 4;
 			}
 			if (!Novice::IsPlayingAudio(maou))
 			{
 				Novice::PlayAudio(maou, true, 0.5f);
 			}
-			
+
 			player->Update(keys, preKeys);
 			break;
-
-		case 2:
-
-			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
-			{
-
-				scene = 0;
-				player->OnCollision();
-
-			}
 		case 3:
 
 			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
@@ -123,7 +128,24 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				player->OnCollision();
 
 			}
+			else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_B)
+			{
+				scene = 0;
+				player->OnCollision();
+			}
+		case 4:
+			if (keys[DIK_SPACE] && preKeys[DIK_SPACE] == 0)
+			{
 
+				scene = 0;
+				player->OnCollision();
+
+			}
+			else if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_B)
+			{
+				scene = 0;
+				player->OnCollision();
+			}
 			
 			break;
 		}
@@ -141,29 +163,33 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		if (scene == 1)
 		{
-			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
-			player->Draw();
+			Novice::DrawSprite(0, 0, setumei, 1, 1, 0.0f, WHITE);
 
 		}
 		else if(scene ==2)
 		{
-			Novice::DrawSprite(0, 0, Gameover, 1, 1, 0.0f, WHITE);
+			Novice::DrawSprite(0, 0, view, 1, 1, 0.0f, WHITE);
+			player->Draw();
 		}
 		else if(scene == 3)
+		{
+			Novice::DrawSprite(0, 0, Gameover, 1, 1, 0.0f, WHITE);
+		}
+		else if(scene == 4)
 		{
 			Novice::DrawSprite(0, 0, op, 1, 1, 0.0f, WHITE);
 
 			Novice::DrawSprite(0, 0, clear, 1, 1, 0.0f, WHITE);
-		}
-		else 
-		{
 			
+		}
+		else
+		{
+
 			Novice::DrawSprite(0, 0, op, 1, 1, 0.0f, WHITE);
 
 			Novice::DrawSprite(0, 0, opword, 1, 1, 0.0f, WHITE);
 
 		}
-	
 		
 		///
 		/// ↑描画処理ここまで

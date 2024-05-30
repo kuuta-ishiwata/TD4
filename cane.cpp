@@ -7,7 +7,7 @@ void cane::Initialize()
 	position[0].y = 1200;
 	position[1].x = 1700;
 	position[1].y = 500;
-	position[2].x = 1800;
+	position[2].x = 2200;
 	position[2].y = 500;
 	speed_ = { 0,0 };
 	this->radius_[0] = 32.0f;
