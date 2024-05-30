@@ -400,7 +400,6 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		if (jampFlag == false)
 		{
-
 			jampFlag = true;
 			player.velocity.Y -= 20;
 			
@@ -461,7 +460,6 @@ void Player::Update(char* keys, char* prekeys)
 				if (sword.equipment == true&&sword.swordshot == false)
 				{
 					sword.position[0].y += 1;
-					
 				}
 				if (sword.equipment2 == true && sword.swordshot2 == false)
 				{
@@ -569,46 +567,6 @@ void Player::Update(char* keys, char* prekeys)
 	right = player.position.X + player.radius - 1;
 	left = player.position.X - player.radius;
 
-
-	//隠しブロック
-	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK2 ||
-		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK2 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK2 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK2)
-	{
-
-		kakusiflag = true;
-
-	}
-
-	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK5 ||
-		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK5 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK5 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK5)
-	{
-
-		kakusiflag5 = true;
-
-	}
-
-	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK6 ||
-		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK6 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK6 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK6)
-	{
-
-		kakusiflag6 = true;
-
-	}
-	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK7 ||
-		map[(int)((top + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK7 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((left) / 32)] == BLOCK7 ||
-		map[(int)((down + player.velocity.Y) / 32)][(int)((right) / 32)] == BLOCK7)
-	{
-
-		kakusiflag7 = true;
-
-	}
 	//ブロッが0以外の時に判定を取る
 	//ブロックが0以外の時に判定を取る
 	if (map[(int)((top + player.velocity.Y) / 32)][(int)((left) / 32)] != 0 ||
@@ -1734,57 +1692,7 @@ void Player::Draw()
 				Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKirasuto, 1, 1, 0.0f, WHITE);
 			}
 
-			if (kakusiflag == true)
-			{
-
-				if (map[y][x] == BLOCK2)//隠しブロック
-				{
-					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi, 1, 1, 0.0f, WHITE);
-				}
-
-			}
-
-			if (kakusiflag2 == true)
-			{
-
-				if (map[y][x] == BLOCK3)//緑の隠しブロック
-				{
-					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi2, 1, 1, 0.0f, WHITE);
-				}
-
-			}
-
-			if (kakusiflag3 == true)
-			{
-
-				if (map[y][x] == BLOCK4)
-				{
-					Novice::DrawSprite(x * BLOCKsize-scrolX, y * BLOCKsize, BLOCKkakusi3, 1, 1, 0.0f, WHITE);
-				}
-
-			}
-
-			if (kakusiflag5 == true)
-			{
-				if (map[y][x] == BLOCK5)
-				{
-					Novice::DrawSprite(x * BLOCKsize - scrolX, y * BLOCKsize, BLOCK22, 1, 1, 0.0f, WHITE);
-				}
-			}
-			if (kakusiflag6 == true)
-			{
-				if (map[y][x] == BLOCK6)
-				{
-					Novice::DrawSprite(x * BLOCKsize - scrolX, y * BLOCKsize, BLOCK22, 1, 1, 0.0f, WHITE);
-				}
-			}
-			if (kakusiflag7 == true)
-			{
-				if (map[y][x] == BLOCK6)
-				{
-					Novice::DrawSprite(x * BLOCKsize - scrolX, y * BLOCKsize, BLOCK22, 1, 1, 0.0f, WHITE);
-				}
-			}
+			
 
 		}
 	}

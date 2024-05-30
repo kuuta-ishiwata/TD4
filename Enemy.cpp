@@ -42,6 +42,11 @@ void Enemy::Initialize()
 	flag2 = true;
 	flag3 = true;
 
+	suraimuflag = true;
+	suraimuflag2 = true;
+	suraimuflag3 = true;
+	suraimuflag4 = true;
+
 }
 
 void Enemy::Update()
