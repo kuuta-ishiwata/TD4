@@ -5,9 +5,9 @@ void Sword::Initialize()
 
 	position[0].x = 300;
 	position[0].y = 500;
-	position[1].x = 1230;
+	position[1].x = 500;
 	position[1].y = 500;
-	position[2].x = 2000;
+	position[2].x = 600;
 	position[2].y = 500;
 	speed_= { 0,0 };
 	this->radius_[0] = 32.0f;

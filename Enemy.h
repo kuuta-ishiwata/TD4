@@ -11,7 +11,7 @@ class Enemy
 
 public:
 
-	Vector2 position[7];
+	Vector2 position[10];
 	Vector2 speed_;
 	Vector2 suraimuspeed;
 	void Initialize();
@@ -46,6 +46,7 @@ public:
 	bool suraimuflag2 = true;
 	bool suraimuflag3 = true;
 
+	
 
 private:
 	

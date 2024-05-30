@@ -17,9 +17,8 @@ void Player::Initialize()
 		16
 	};
 
-	goalposition = {4500,300 };
-	goalradius = 150;
-
+	goalposition = {4250,50 };
+	goalradius = 170;
 	sword.Initialize();
 	cane_.Initialize();
 	spear_.Initialize();
@@ -79,6 +78,7 @@ void Player::Update(char* keys, char* prekeys)
 
 		}
 	}
+	
 
 	if (keys[DIK_A] == 0 && prekeys[DIK_A])
 	{
@@ -1244,9 +1244,6 @@ void Player::Update(char* keys, char* prekeys)
 
 			flag = false;
 
-		
-
-
 		}
 	}
 	if (enemy_.suraimuflag3 == true)
@@ -1492,6 +1489,7 @@ void Player::Update(char* keys, char* prekeys)
 		}
 
 	}
+
 	if (cane_.caneflag3 == true && enemy_.suraimuflag3 == true)
 	{
 		if (cane_.position[2].x <= enemy_.position[3].x + enemy_.radius_[5] &&
@@ -1505,6 +1503,8 @@ void Player::Update(char* keys, char* prekeys)
 		}
 
 	}
+
+
 
 	////goalあたり判定
 	if (player.position.X <= goalposition.x + goalradius &&
@@ -1520,7 +1520,7 @@ void Player::Update(char* keys, char* prekeys)
 	{
 		enemy_.speed_.x = enemy_.speed_.x * -1;
 	}
-	if (enemy_.position[0].x <= 1000)
+	if (enemy_.position[0].x <= 1250)
 	{
 		enemy_.speed_.x = enemy_.speed_.x * -1;
 	}
@@ -1535,7 +1535,11 @@ void Player::Update(char* keys, char* prekeys)
 		enemy_.suraimuspeed.x = enemy_.suraimuspeed.x * -1;
 	}
 
-
+	
+	if (player.position.Y >= 800)
+	{
+		flag = false;
+	}
 
 
 }
@@ -1593,8 +1597,11 @@ void Player::Draw()
 		{
 			Novice::DrawSprite(cane_.position[2].x - scrolX, cane_.position[2].y - 20, tue, 1, 1, 0.0f, WHITE);
 		}
+
+
 		Novice::DrawSprite(goalposition.x - scrolX, goalposition.y, Goal, 1, 1, 0.0f, WHITE);
 		
+
 	//ブロック描画
 	for (int y = 0; y < 100; y++)
 	{
@@ -1689,5 +1696,6 @@ void Player::OnCollision()
 	 canetimer = 0;
 	 canetimer2 = 0;
 	 canetimer3 = 0;
+	 goalflag = true;
 
 }

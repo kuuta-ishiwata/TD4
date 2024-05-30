@@ -103,9 +103,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 			
 			player->Update(keys, preKeys);
-
-		
-		
 			break;
 
 		case 2:
@@ -158,11 +155,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		}
 	
-		//
-		//enemy_->Draw(player->scrolX);
 		
-
-		//cane_->Draw();
 		///
 		/// ↑描画処理ここまで
 		///
